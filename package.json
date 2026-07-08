@@ -1,0 +1,14 @@
+{
+  "name": "jennys-beauty",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "serve -l 8080 .",
+    "build": "echo 'static site - nothing to build'",
+    "build:dev": "echo 'static site - nothing to build'",
+    "start": "serve -l 8080 ."
+  },
+  "devDependencies": {
+    "serve": "^14.2.4"
+  }
+}
