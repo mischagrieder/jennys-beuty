@@ -1,0 +1,14 @@
+{
+  "name": "jennys-beauty",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "sirv . --host 0.0.0.0 --single",
+    "build": "echo 'static site - nothing to build'",
+    "build:dev": "echo 'static site - nothing to build'",
+    "start": "sirv . --host 0.0.0.0 --single"
+  },
+  "devDependencies": {
+    "sirv-cli": "^3.0.1"
+  }
+}
