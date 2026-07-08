@@ -4,9 +4,9 @@
   "private": true,
   "scripts": {
     "dev": "sirv . --host 0.0.0.0 --single",
-    "build": "echo 'static site - nothing to build'",
-    "build:dev": "echo 'static site - nothing to build'",
-    "start": "sirv . --host 0.0.0.0 --single"
+    "build": "rm -rf dist && mkdir -p dist && cp -r index.html favicon.svg robots.txt sitemap.xml css js damen herren galerie salon team kontakt impressum datenschutz dist/",
+    "build:dev": "rm -rf dist && mkdir -p dist && cp -r index.html favicon.svg robots.txt sitemap.xml css js damen herren galerie salon team kontakt impressum datenschutz dist/",
+    "start": "sirv dist --host 0.0.0.0 --single"
   },
   "devDependencies": {
     "sirv-cli": "^3.0.1"
