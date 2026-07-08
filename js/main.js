@@ -149,6 +149,14 @@
   }
 
   /* ---------------------------------------------------------------
+     Öffnungszeiten: heutigen Tag hervorheben
+     --------------------------------------------------------------- */
+  var todayRow = document.querySelector(
+    '.hours-row[data-day="' + new Date().getDay() + '"]'
+  );
+  if (todayRow) todayRow.classList.add("hours-row--today");
+
+  /* ---------------------------------------------------------------
      Jahreszahl im Footer
      --------------------------------------------------------------- */
   document.querySelectorAll("[data-year]").forEach(function (el) {
