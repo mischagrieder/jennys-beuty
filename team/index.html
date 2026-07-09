@@ -40,7 +40,7 @@
 <body>
   <a class="skip-link" href="#inhalt">Zum Inhalt springen</a>
 
-  <header class="nav nav--solid">
+  <header class="nav">
     <a class="nav__brand" href="/">Jenny's Beauty</a>
     <nav aria-label="Hauptnavigation">
       <ul class="nav__links">
@@ -72,13 +72,17 @@
 
   <main id="inhalt">
 
-    <section class="page-hero">
-      <div class="wrap">
-        <div class="sec-head">
-          <span class="label">Team</span>
-          <h1>Jenny &amp; ihr Team</h1>
-        </div>
-        <p class="lead">Coiffeur, Nails und Augenbrauen – mit Herzblut, Sorgfalt und einem guten Gespür für das, was zu Ihnen passt.</p>
+    <!-- Bild-Hero mit Titel (gleiches Muster wie Startseite) -->
+    <section class="hero hero--sub" aria-label="Team">
+      <div class="hero__media">
+        <!-- PLATZHALTER-BILD: eigenes Teamfoto einsetzen -->
+        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=1920&auto=format&fit=crop"
+             alt="Coiffeuse von Jenny's Beauty" fetchpriority="high">
+      </div>
+      <div class="hero__inner">
+        <span class="label hero__eyebrow">Unser Team</span>
+        <h1 class="hero__title">Team</h1>
+        <p class="hero__tag">Jenny &amp; ihr Team – mit Herzblut und Sorgfalt für Ihre Schönheit.</p>
       </div>
     </section>
 

@@ -433,6 +433,10 @@ body.menu-open .nav__toggle span:nth-child(3) { transform: translateY(-8px) rota
 }
 @media (max-width: 640px) { .hero__scroll { display: none; } }
 
+/* Bild-Hero für Unterseiten (gleiches Muster wie Startseite, etwas niedriger) */
+.hero--sub { min-height: min(70vh, 620px); }
+.hero--sub .hero__title { font-size: clamp(2.5rem, 1.4rem + 5vw, 4.75rem); }
+
 /* Statischer Seiten-Hero (Unterseiten) */
 
 .page-hero {
@@ -1011,16 +1015,77 @@ body.menu-open .nav__toggle span:nth-child(3) { transform: translateY(-8px) rota
    Scroll-Reveal
    -------------------------------------------------------------------------- */
 
-.reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease; }
+/* Scroll-Reveal – sanftes, flüssiges Einschweben */
+.reveal {
+  opacity: 0;
+  transform: translateY(34px);
+  transition:
+    opacity 0.85s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.85s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
 .reveal.in { opacity: 1; transform: none; }
 
+/* Überschriften kommen sanft von der Seite (mehr Bewegung) */
+.sec-head.reveal { transform: translateX(-36px); }
+.sec-head.reveal.in { transform: none; }
+
+/* Richtungs-Varianten */
+.reveal--left { transform: translateX(-44px); }
+.reveal--right { transform: translateX(44px); }
+
+/* Gestaffeltes Erscheinen von Karten-/Bild-Gruppen */
+.services-menu > .reveal:nth-child(2),
+.price-cols > .reveal:nth-child(2),
+.ba-grid > .reveal:nth-child(2),
+.team-grid > .reveal:nth-child(2) { transition-delay: 0.12s; }
+.services-menu > .reveal:nth-child(3),
+.price-cols > .reveal:nth-child(3),
+.ba-grid > .reveal:nth-child(3) { transition-delay: 0.24s; }
+.price-cols > .reveal:nth-child(4) { transition-delay: 0.36s; }
+
 html.no-js .reveal { opacity: 1; transform: none; transition: none; }
+
+/* --------------------------------------------------------------------------
+   Schwebender Termin-Button (erscheint beim Scrollen)
+   -------------------------------------------------------------------------- */
+.fab {
+  position: fixed;
+  right: clamp(1rem, 3vw, 2rem);
+  bottom: clamp(1rem, 3vw, 2rem);
+  z-index: 85;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: var(--col-gold);
+  color: #fff;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: var(--fs-14);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.85rem 1.35rem;
+  border-radius: 999px;
+  box-shadow: 0 10px 28px rgba(58, 58, 58, 0.28);
+  opacity: 0;
+  transform: translateY(24px) scale(0.96);
+  pointer-events: none;
+  transition: opacity 0.4s ease, transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), background 0.25s ease;
+}
+.fab.is-visible { opacity: 1; transform: none; pointer-events: auto; }
+.fab:hover { background: var(--col-gold-muted); color: #fff; }
+.fab svg { width: 1.15em; height: 1.15em; flex: none; }
+@media (max-width: 460px) {
+  .fab { padding: 0.9rem; }
+  .fab .fab__label { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+}
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .reveal { opacity: 1; transform: none; transition: none; }
   .hero__media img { animation: none; }
   .hero__scroll::after { animation: none; }
+  .fab { transition: opacity 0.2s ease; transform: none; }
 }
 
 /* --------------------------------------------------------------------------

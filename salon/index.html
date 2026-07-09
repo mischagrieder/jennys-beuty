@@ -40,7 +40,7 @@
 <body>
   <a class="skip-link" href="#inhalt">Zum Inhalt springen</a>
 
-  <header class="nav nav--solid">
+  <header class="nav">
     <a class="nav__brand" href="/">Jenny's Beauty</a>
     <nav aria-label="Hauptnavigation">
       <ul class="nav__links">
@@ -72,13 +72,17 @@
 
   <main id="inhalt">
 
-    <section class="page-hero">
-      <div class="wrap">
-        <div class="sec-head">
-          <span class="label">Salon &amp; Philosophie</span>
-          <h1>Zeit für Ihre Schönheit</h1>
-        </div>
-        <p class="quote" style="max-width: 26ch">«Bei uns bekommen Sie Coiffeur, Nails und Augenbrauen unter einem Dach – persönlich und mit Sorgfalt.»</p>
+    <!-- Bild-Hero mit Titel (gleiches Muster wie Startseite) -->
+    <section class="hero hero--sub" aria-label="Salon">
+      <div class="hero__media">
+        <!-- PLATZHALTER-BILD: eigenes Salonfoto einsetzen -->
+        <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?q=80&w=1920&auto=format&fit=crop"
+             alt="Blick in den Salon von Jenny's Beauty" fetchpriority="high">
+      </div>
+      <div class="hero__inner">
+        <span class="label hero__eyebrow">Salon &amp; Philosophie</span>
+        <h1 class="hero__title">Salon</h1>
+        <p class="hero__tag">Coiffeur, Nails und Augenbrauen unter einem Dach – persönlich und mit Sorgfalt.</p>
       </div>
     </section>
 

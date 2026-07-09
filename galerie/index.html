@@ -40,7 +40,7 @@
 <body>
   <a class="skip-link" href="#inhalt">Zum Inhalt springen</a>
 
-  <header class="nav nav--solid">
+  <header class="nav">
     <a class="nav__brand" href="/">Jenny's Beauty</a>
     <nav aria-label="Hauptnavigation">
       <ul class="nav__links">
@@ -72,13 +72,17 @@
 
   <main id="inhalt">
 
-    <section class="page-hero">
-      <div class="wrap">
-        <div class="sec-head">
-          <span class="label">Galerie</span>
-          <h1>Unsere Ergebnisse</h1>
-        </div>
-        <p class="lead">Eine Auswahl unserer Arbeit – von Damen- und Herrenschnitten über Bart und Farbe bis zu Nägeln und Augenbrauen. Filtern Sie nach Bereich.</p>
+    <!-- Bild-Hero mit Titel (gleiches Muster wie Startseite) -->
+    <section class="hero hero--sub" aria-label="Galerie">
+      <div class="hero__media">
+        <!-- PLATZHALTER-BILD: eigenes Kundenfoto einsetzen -->
+        <img src="https://images.unsplash.com/photo-1492106087820-71f1a00d2b11?q=80&w=1920&auto=format&fit=crop"
+             alt="Ergebnis: kühles Blond mit Strähnen" fetchpriority="high">
+      </div>
+      <div class="hero__inner">
+        <span class="label hero__eyebrow">Ergebnisse</span>
+        <h1 class="hero__title">Galerie</h1>
+        <p class="hero__tag">Eine Auswahl unserer Arbeit – filtern Sie nach Bereich.</p>
       </div>
     </section>
 

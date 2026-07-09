@@ -68,7 +68,7 @@
           }
         });
       },
-      { threshold: 0.12, rootMargin: "0px 0px -5% 0px" }
+      { threshold: 0.12, rootMargin: "0px 0px -12% 0px" }
     );
     revealEls.forEach(function (el) { io.observe(el); });
   } else {
@@ -155,6 +155,30 @@
     '.hours-row[data-day="' + new Date().getDay() + '"]'
   );
   if (todayRow) todayRow.classList.add("hours-row--today");
+
+  /* ---------------------------------------------------------------
+     Schwebender Termin-Button (erscheint beim Scrollen)
+     Wird per JS eingefügt – nicht auf der Kontaktseite selbst.
+     --------------------------------------------------------------- */
+  if (!/\/kontakt\/?$/.test(window.location.pathname)) {
+    var fab = document.createElement("a");
+    fab.className = "fab";
+    fab.href = "/kontakt/";
+    fab.setAttribute("aria-label", "Termin vereinbaren");
+    fab.innerHTML =
+      '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" ' +
+      'stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' +
+      '<rect x="3" y="4.5" width="18" height="16" rx="2"></rect>' +
+      '<path d="M3 9h18M8 2.5v4M16 2.5v4"></path></svg>' +
+      '<span class="fab__label">Termin</span>';
+    document.body.appendChild(fab);
+
+    var toggleFab = function () {
+      fab.classList.toggle("is-visible", window.scrollY > 320);
+    };
+    window.addEventListener("scroll", toggleFab, { passive: true });
+    toggleFab();
+  }
 
   /* ---------------------------------------------------------------
      Jahreszahl im Footer
