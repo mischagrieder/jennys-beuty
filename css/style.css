@@ -1,6 +1,8 @@
 /* ==========================================================================
    Jenny's Beauty — Rothrist
-   Helle Eleganz · Rosé & Gold · Anthrazit-Text · Chivo + Lora
+   Helle Eleganz · Rosé & Mauve · Anthrazit-Text · Chivo + Lora
+   Hinweis: Die Variablen heissen historisch noch "gold", tragen jetzt
+   aber die Mauve-/Altrosa-Akzentfarbe.
    ========================================================================== */
 
 :root {
@@ -8,8 +10,8 @@
   --col-surface: #F7E6E7;     /* sichtbare, weiche Rosé-Fläche */
   --col-border: #E7D3D4;      /* zarte rosé-graue Trennlinie */
   --col-rose-line: #E3B9BD;   /* rosé Akzent-Rahmen */
-  --col-gold: #D4AF37;        /* Gold – Highlights, Icons, Rahmen */
-  --col-gold-muted: #B0862B;  /* dunkleres Gold für Text (lesbar) */
+  --col-gold: #B26C77;        /* Mauve/Altrosa – Akzent, Rahmen, Buttons */
+  --col-gold-muted: #97525E;  /* tiefes Mauve für Text/Links (lesbar) */
   --col-ivory: #33302F;       /* Überschriften – tiefes Anthrazit */
   --col-text: #3A3A3A;        /* Fliesstext – Anthrazit */
   --col-whisper: #9B9B9B;     /* neutrales Grau */
@@ -966,10 +968,10 @@ a:hover { color: var(--col-gold-muted); }
 
 /* Auswahl & Skip-Link */
 ::selection { background: var(--col-rose); color: var(--col-ink); }
-.skip-link { background: var(--col-gold); color: var(--col-ink); }
+.skip-link { background: var(--col-gold); color: #fff; }
 
 /* Buttons */
-.btn { color: var(--col-ink); background: var(--col-gold); border-color: var(--col-gold); }
+.btn { color: #fff; background: var(--col-gold); border-color: var(--col-gold); }
 .btn:hover { background: transparent; color: var(--col-gold-muted); }
 .btn--ghost { color: var(--col-text); background: transparent; border-color: var(--col-whisper); }
 .btn--ghost:hover { color: var(--col-void); background: var(--col-text); border-color: var(--col-text); }
@@ -1009,7 +1011,7 @@ body.menu-open .nav__toggle span { background: var(--col-ink); }
 /* Galerie-Beschriftung & Vorher/Nachher-Tags über Fotos: hell */
 .gallery__item figcaption { color: #fff; }
 .ba__tag { color: #fff; }
-.ba__handle::after { color: var(--col-ink); }
+.ba__handle::after { color: #fff; }
 
 /* Platzhalter-Kacheln: sanfter Rosé-Schimmer */
 .gallery__item--ph {
@@ -1023,7 +1025,7 @@ body.menu-open .nav__toggle span { background: var(--col-ink); }
 .filter button { color: var(--col-text); border-color: var(--col-border); }
 .filter button:hover { color: var(--col-ink); border-color: var(--col-whisper); }
 .filter button[aria-pressed="true"] {
-  color: var(--col-ink);
+  color: #fff;
   background: var(--col-gold);
   border-color: var(--col-gold);
 }
