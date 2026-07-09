@@ -1,17 +1,20 @@
 /* ==========================================================================
    Jenny's Beauty — Rothrist
-   Dunkle Eleganz · Gold-Signatur · Chivo + Lora
+   Helle Eleganz · Rosé & Gold · Anthrazit-Text · Chivo + Lora
    ========================================================================== */
 
 :root {
-  --col-void: #0E0D0C;
-  --col-surface: #1A1815;
-  --col-border: #2C2924;
-  --col-gold: #C4A35A;
-  --col-gold-muted: #8A6F3A;
-  --col-ivory: #F2EDE4;
-  --col-text: #B8AFA0;
-  --col-whisper: #5A544C;
+  --col-void: #FFFFFF;        /* Seitenhintergrund (Weiss) */
+  --col-surface: #FBF2F2;     /* weiche Rosé-Fläche */
+  --col-border: #ECDFDE;      /* zarte Trennlinie */
+  --col-gold: #D4AF37;        /* Gold – Highlights, Icons, Rahmen */
+  --col-gold-muted: #B0862B;  /* dunkleres Gold für Text (lesbar) */
+  --col-ivory: #33302F;       /* Überschriften – tiefes Anthrazit */
+  --col-text: #3A3A3A;        /* Fliesstext – Anthrazit */
+  --col-whisper: #9B9B9B;     /* neutrales Grau */
+  --col-rose: #E8B4B8;        /* Rosé – Akzente */
+  --col-rose-soft: #F5DCDD;   /* helles Rosé */
+  --col-ink: #33302F;         /* Text auf Gold/hellen Flächen */
 
   /* Modular Scale 1.25 */
   --fs-12: 0.75rem;
@@ -942,3 +945,105 @@ html.no-js .reveal { opacity: 1; transform: none; transition: none; }
 @media (max-width: 860px) {
   .col-7, .col-5, .col-6 { grid-column: 1 / -1; }
 }
+
+/* ==========================================================================
+   Farbwelt: Hell & Rosé — Anpassungen an die neue Palette
+   (Diese Regeln stehen bewusst am Ende, damit sie die dunklen Vorgaben
+   überschreiben. Text über Fotos – Hero, Galerie-Beschriftung – bleibt hell.)
+   ========================================================================== */
+
+/* Links: gut lesbares Anthrazit statt Gold, dezenter Gold-Hover */
+a { color: var(--col-text); }
+a:hover { color: var(--col-gold-muted); }
+
+/* Gold-Akzent-Texte etwas tiefer, damit sie auf Weiss lesbar bleiben */
+.label--gold,
+.cta-link { color: var(--col-gold-muted); }
+.cta-link:hover { color: var(--col-ink); text-decoration-color: var(--col-gold); }
+.triptych .label,
+.hero__eyebrow { color: var(--col-gold-muted); }
+
+/* Auswahl & Skip-Link */
+::selection { background: var(--col-rose); color: var(--col-ink); }
+.skip-link { background: var(--col-gold); color: var(--col-ink); }
+
+/* Buttons */
+.btn { color: var(--col-ink); background: var(--col-gold); border-color: var(--col-gold); }
+.btn:hover { background: transparent; color: var(--col-gold-muted); }
+.btn--ghost { color: var(--col-text); background: transparent; border-color: var(--col-whisper); }
+.btn--ghost:hover { color: var(--col-void); background: var(--col-text); border-color: var(--col-text); }
+
+/* Navigation – transparent über dem Hero: helle Schrift */
+.nav__brand { color: #fff; }
+.nav__brand:hover { color: var(--col-gold); }
+.nav__links a { color: rgba(255, 255, 255, 0.85); }
+.nav__links a:hover { color: #fff; }
+.nav__links a[aria-current="page"] { color: var(--col-gold); }
+.nav__toggle span { background: #fff; }
+
+/* Navigation – solide (gescrollt / Unterseiten): dunkle Schrift auf Hell */
+.nav--solid {
+  background: rgba(255, 255, 255, 0.9);
+  border-bottom-color: var(--col-border);
+}
+.nav--solid .nav__brand { color: var(--col-ivory); }
+.nav--solid .nav__brand:hover { color: var(--col-gold-muted); }
+.nav--solid .nav__links a { color: var(--col-text); }
+.nav--solid .nav__links a:hover { color: var(--col-gold-muted); }
+.nav--solid .nav__links a[aria-current="page"] { color: var(--col-gold-muted); }
+.nav--solid .nav__toggle span { background: var(--col-ink); }
+
+/* Mobile-Menü: weiche Rosé-Fläche, dunkle Schrift, dunkles X */
+.menu-overlay { background: var(--col-surface); }
+body.menu-open .nav__toggle span { background: var(--col-ink); }
+
+/* Hero: Text über dem Foto bleibt hell */
+.hero__title,
+.hero__tag { color: #fff; }
+.hero__scroll { color: rgba(255, 255, 255, 0.75); }
+.hero__scroll::after { background: rgba(255, 255, 255, 0.75); }
+.hero .btn--ghost { color: #fff; border-color: rgba(255, 255, 255, 0.55); }
+.hero .btn--ghost:hover { color: var(--col-ink); background: #fff; border-color: #fff; }
+
+/* Galerie-Beschriftung & Vorher/Nachher-Tags über Fotos: hell */
+.gallery__item figcaption { color: #fff; }
+.ba__tag { color: #fff; }
+.ba__handle::after { color: var(--col-ink); }
+
+/* Platzhalter-Kacheln: sanfter Rosé-Schimmer */
+.gallery__item--ph {
+  background:
+    radial-gradient(circle at 30% 22%, rgba(232, 180, 184, 0.30), transparent 62%),
+    var(--col-surface);
+}
+.gallery__item--ph .ph-note strong { color: var(--col-gold-muted); }
+
+/* Filter-Buttons */
+.filter button { color: var(--col-text); border-color: var(--col-border); }
+.filter button:hover { color: var(--col-ink); border-color: var(--col-whisper); }
+.filter button[aria-pressed="true"] {
+  color: var(--col-ink);
+  background: var(--col-gold);
+  border-color: var(--col-gold);
+}
+
+/* Öffnungszeiten: heutiger Tag in weichem Rosé */
+.hours-row--today { background: rgba(232, 180, 184, 0.30); }
+.hours-row--today dt { color: var(--col-gold-muted); }
+.hours-row--today dd { color: var(--col-ink); }
+.hours-row--today dt::after { color: var(--col-gold-muted); }
+
+/* Formular: helle Felder */
+.field input,
+.field textarea,
+.field select { background: #fff; border-color: var(--col-border); color: var(--col-ink); }
+.field input:focus,
+.field textarea:focus,
+.field select:focus { border-color: var(--col-gold); }
+.form-status { color: var(--col-gold-muted); }
+
+/* Karte: natürliche, helle Darstellung */
+.map-frame { border-color: var(--col-border); filter: grayscale(12%); }
+
+/* Footer: sanfte Rosé-Fläche zur Abgrenzung */
+.footer { background: var(--col-surface); border-top-color: var(--col-border); }
