@@ -5,8 +5,9 @@
 
 :root {
   --col-void: #FFFFFF;        /* Seitenhintergrund (Weiss) */
-  --col-surface: #FBF2F2;     /* weiche Rosé-Fläche */
-  --col-border: #ECDFDE;      /* zarte Trennlinie */
+  --col-surface: #F7E6E7;     /* sichtbare, weiche Rosé-Fläche */
+  --col-border: #E7D3D4;      /* zarte rosé-graue Trennlinie */
+  --col-rose-line: #E3B9BD;   /* rosé Akzent-Rahmen */
   --col-gold: #D4AF37;        /* Gold – Highlights, Icons, Rahmen */
   --col-gold-muted: #B0862B;  /* dunkleres Gold für Text (lesbar) */
   --col-ivory: #33302F;       /* Überschriften – tiefes Anthrazit */
@@ -1027,8 +1028,18 @@ body.menu-open .nav__toggle span { background: var(--col-ink); }
   border-color: var(--col-gold);
 }
 
-/* Öffnungszeiten: heutiger Tag in weichem Rosé */
-.hours-row--today { background: rgba(232, 180, 184, 0.30); }
+/* Sichtbare Rosé-Flächen mit zartem Rosé-Rahmen einrahmen */
+.section--surface {
+  border-top: 1px solid var(--col-rose-line);
+  border-bottom: 1px solid var(--col-rose-line);
+}
+.hours-strip {
+  border-top-color: var(--col-rose-line);
+  border-bottom-color: var(--col-rose-line);
+}
+
+/* Öffnungszeiten: heutiger Tag kräftiger in Rosé (hebt sich vom Band ab) */
+.hours-row--today { background: rgba(227, 150, 156, 0.35); }
 .hours-row--today dt { color: var(--col-gold-muted); }
 .hours-row--today dd { color: var(--col-ink); }
 .hours-row--today dt::after { color: var(--col-gold-muted); }
@@ -1045,5 +1056,5 @@ body.menu-open .nav__toggle span { background: var(--col-ink); }
 /* Karte: natürliche, helle Darstellung */
 .map-frame { border-color: var(--col-border); filter: grayscale(12%); }
 
-/* Footer: sanfte Rosé-Fläche zur Abgrenzung */
-.footer { background: var(--col-surface); border-top-color: var(--col-border); }
+/* Footer: sanfte Rosé-Fläche mit rosé Akzent-Kante */
+.footer { background: var(--col-surface); border-top: 1px solid var(--col-rose-line); }
