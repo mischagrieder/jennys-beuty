@@ -396,6 +396,8 @@ body.menu-open .nav__toggle span:nth-child(3) { transform: translateY(-8px) rota
   display: block;
   margin-bottom: 1.1rem;
   color: var(--col-gold);
+  font-size: var(--fs-16);
+  font-weight: 700;
 }
 .hero__title {
   font-family: var(--font-display);
