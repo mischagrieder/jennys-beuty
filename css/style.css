@@ -535,7 +535,9 @@ body.menu-open .nav__toggle span:nth-child(3) { transform: translateY(-8px) rota
 /* Öffnungszeiten-Strip */
 
 .hours-strip {
-  background: var(--col-surface);
+  background-color: var(--col-surface);
+  background-image: radial-gradient(rgba(178, 108, 119, 0.10) 1.2px, transparent 1.2px);
+  background-size: 20px 20px;
   border-top: 1px solid var(--col-border);
   border-bottom: 1px solid var(--col-border);
   padding-block: clamp(2.5rem, 6vw, 4.5rem);
