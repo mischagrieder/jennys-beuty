@@ -6,7 +6,7 @@
    ========================================================================== */
 
 :root {
-  --col-void: #FFFFFF;        /* Seitenhintergrund (Weiss) */
+  --col-void: #FFFCFD;        /* Seitenhintergrund (warmes Off-White) */
   --col-surface: #F7E6E7;     /* sichtbare, weiche Rosé-Fläche */
   --col-border: #E7D3D4;      /* zarte rosé-graue Trennlinie */
   --col-rose-line: #E3B9BD;   /* rosé Akzent-Rahmen */
@@ -51,7 +51,14 @@ html { scroll-behavior: smooth; }
 
 body {
   margin: 0;
-  background: var(--col-void);
+  background-color: var(--col-void);
+  /* sanfte Rosé-Schleier, damit die Seite beim Scrollen nicht nur weiss wirkt */
+  background-image:
+    radial-gradient(48rem 48rem at 108% -6%, rgba(232, 180, 184, 0.12), transparent 60%),
+    radial-gradient(42rem 42rem at -8% 42%, rgba(232, 180, 184, 0.10), transparent 60%),
+    radial-gradient(40rem 40rem at 112% 96%, rgba(232, 180, 184, 0.10), transparent 60%);
+  background-attachment: fixed;
+  background-repeat: no-repeat;
   color: var(--col-text);
   font-family: var(--font-body);
   font-size: var(--fs-16);
@@ -64,9 +71,9 @@ img { display: block; max-width: 100%; height: auto; border-radius: 0; }
 
 h1, h2, h3 {
   font-family: var(--font-display);
-  font-weight: 700;
+  font-weight: 800;
   color: var(--col-ivory);
-  line-height: 1.15;
+  line-height: 1.14;
   margin: 0 0 1.25rem;
 }
 
@@ -140,7 +147,12 @@ summary:focus-visible {
 }
 
 .section { padding-block: var(--space-section); }
-.section--surface { background: var(--col-surface); }
+.section--surface {
+  background-color: var(--col-surface);
+  /* feines Punkt-Muster als dezente Auflockerung */
+  background-image: radial-gradient(rgba(178, 108, 119, 0.10) 1.3px, transparent 1.3px);
+  background-size: 24px 24px;
+}
 .section--tight { padding-block: clamp(2.5rem, 5vw, 4rem); }
 
 /* Sektionstitel mit goldenem Vertikalstrich (Signatur).
@@ -204,9 +216,9 @@ summary:focus-visible {
 
 .nav__brand {
   font-family: var(--font-display);
-  font-weight: 300;
+  font-weight: 600;
   font-size: var(--fs-16);
-  letter-spacing: 0.35em;
+  letter-spacing: 0.32em;
   text-transform: uppercase;
   color: var(--col-ivory);
 }
@@ -387,11 +399,11 @@ body.menu-open .nav__toggle span:nth-child(3) { transform: translateY(-8px) rota
 }
 .hero__title {
   font-family: var(--font-display);
-  font-weight: 300;
+  font-weight: 800;
   font-size: var(--fs-hero);
   line-height: 0.98;
-  letter-spacing: 0.02em;
-  color: var(--col-ivory);
+  letter-spacing: 0.01em;
+  color: #fff;
   margin: 0 0 1rem;
   text-transform: uppercase;
 }
@@ -986,7 +998,7 @@ body.menu-open .nav__toggle span:nth-child(3) { transform: translateY(-8px) rota
 .footer p { font-size: var(--fs-14); margin-bottom: 0.35rem; }
 .footer__brand .wordmark {
   font-family: var(--font-display);
-  font-weight: 300;
+  font-weight: 600;
   font-size: var(--fs-20);
   letter-spacing: 0.35em;
   text-transform: uppercase;

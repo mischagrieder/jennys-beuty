@@ -160,11 +160,13 @@
      Schwebender Termin-Button (erscheint beim Scrollen)
      Wird per JS eingefügt – nicht auf der Kontaktseite selbst.
      --------------------------------------------------------------- */
-  if (!/\/kontakt\/?$/.test(window.location.pathname)) {
+  {
     var fab = document.createElement("a");
     fab.className = "fab";
-    fab.href = "/kontakt/";
-    fab.setAttribute("aria-label", "Termin vereinbaren");
+    fab.href = "https://jennys-beauty.hairlist.ch/login";
+    fab.target = "_blank";
+    fab.rel = "noopener";
+    fab.setAttribute("aria-label", "Termin online buchen");
     fab.innerHTML =
       '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" ' +
       'stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' +
@@ -191,7 +193,7 @@
       preise:
         "Ein kleiner Auszug (CHF):<br>Damen Waschen/Schneiden/Styling ab 80.–<br>Herren ab 30.–<br>Kinder ab 20.–<br>Ganze Preisliste: <a href=\"/damen/\">Damen</a> · <a href=\"/herren/\">Herren</a>.",
       termin:
-        "Am schnellsten telefonisch: <a href=\"tel:+41763450011\">076 345 00 11</a>.<br>Oder über unser <a href=\"/kontakt/\">Kontaktformular</a>. Wir arbeiten nur nach Voranmeldung.",
+        "Buchen Sie bequem online: <a href=\"https://jennys-beauty.hairlist.ch/login\" target=\"_blank\" rel=\"noopener\">Termin online buchen</a>.<br>Oder telefonisch: <a href=\"tel:+41763450011\">076 345 00 11</a> – wir arbeiten nur nach Voranmeldung.",
       anfahrt:
         "Sie finden uns an der Neue Aarburgerstrasse 22, 4852 Rothrist – im Breitenpark, Parkplätze sind vorhanden.",
       leistungen:
