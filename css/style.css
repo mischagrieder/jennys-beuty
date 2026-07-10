@@ -1361,15 +1361,9 @@ body.menu-open .nav__toggle span { background: var(--col-ink); }
   border-color: var(--col-gold);
 }
 
-/* Sichtbare Rosé-Flächen mit zartem Rosé-Rahmen einrahmen */
-.section--surface {
-  border-top: 1px solid var(--col-rose-line);
-  border-bottom: 1px solid var(--col-rose-line);
-}
-.hours-strip {
-  border-top-color: var(--col-rose-line);
-  border-bottom-color: var(--col-rose-line);
-}
+/* Keine sichtbaren Trennlinien an den Rosé-Flächen (nur Farbwechsel) */
+.section--surface { border-top: 0; border-bottom: 0; }
+.hours-strip { border-top: 0; border-bottom: 0; }
 
 /* Öffnungszeiten: heutiger Tag kräftiger in Rosé (hebt sich vom Band ab) */
 .hours-row--today { background: rgba(227, 150, 156, 0.35); }
@@ -1389,5 +1383,5 @@ body.menu-open .nav__toggle span { background: var(--col-ink); }
 /* Karte: natürliche, helle Darstellung */
 .map-frame { border-color: var(--col-border); filter: grayscale(12%); }
 
-/* Footer: sanfte Rosé-Fläche mit rosé Akzent-Kante */
-.footer { background: var(--col-surface); border-top: 1px solid var(--col-rose-line); }
+/* Footer: sanfte Rosé-Fläche ohne Trennlinie */
+.footer { background: var(--col-surface); border-top: 0; }
