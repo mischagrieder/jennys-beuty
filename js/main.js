@@ -221,7 +221,12 @@
       '<div class="chat-head"><strong>Jenny’s Beauty</strong>' +
       '<button type="button" class="chat-x" aria-label="Chat schliessen">×</button></div>' +
       '<div class="chat-body"></div>' +
-      '<div class="chat-quick"></div>';
+      '<div class="chat-quick"></div>' +
+      '<form class="chat-input" autocomplete="off">' +
+      '<input type="text" aria-label="Ihre Frage" placeholder="Ihre Frage eingeben …">' +
+      '<button type="submit" aria-label="Senden">' +
+      '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 2 11 13M22 2l-7 20-4-9-9-4 20-7z"></path></svg>' +
+      '</button></form>';
 
     document.body.appendChild(toggle);
     document.body.appendChild(panel);
@@ -238,15 +243,68 @@
       body.scrollTop = body.scrollHeight;
     }
 
+    function botReply(html) {
+      window.setTimeout(function () { addMsg(html, "bot"); }, 320);
+    }
+
     quick.forEach(function (q) {
       var btn = document.createElement("button");
       btn.type = "button";
       btn.textContent = q[1];
       btn.addEventListener("click", function () {
         addMsg(q[1], "user");
-        window.setTimeout(function () { addMsg(answers[q[0]], "bot"); }, 300);
+        botReply(answers[q[0]]);
       });
       quickWrap.appendChild(btn);
+    });
+
+    /* Freitext: einfache Schlüsselwort-Erkennung (kein Server nötig) */
+    var keywords = {
+      preise: ["preis", "kost", "teuer", "franken", "chf", "tarif", "betrag", "wieviel", "wie viel"],
+      termin: ["termin", "buchen", "reservier", "anmeld", "voranmeld", "vereinbar", "appointment"],
+      oeffnung: ["offen", "öffnung", "offnung", "geöffnet", "geoffnet", "wann", "zeit", "stunde", "feiertag", "heute"],
+      anfahrt: ["anfahrt", "adresse", "wo ", "woseid", "standort", "parkplatz", "parkier", "finden", "rothrist", "aarburg", "karte", "lage"],
+      leistungen: ["leistung", "angebot", "service", "bietet", "bieten", "haarschnitt", "schnitt", "farbe", "färben", "faerben", "mèche", "meche", "balayage", "nagel", "nägel", "naegel", "maniküre", "manikure", "pediküre", "pedikure", "kosmetik", "augenbraue", "braue", "wimper", "bart", "kinder", "damen", "herren", "dauerwelle", "extension", "hochzeit", "make", "wimpern"]
+    };
+    var order = ["preise", "termin", "oeffnung", "anfahrt", "leistungen"];
+    var greetings = ["hallo", "hoi", "hey", "grüezi", "gruezi", "guten tag", "guete", "salü", "salu"];
+
+    function escapeHtml(s) {
+      return s.replace(/[&<>"']/g, function (c) {
+        return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c];
+      });
+    }
+
+    function matchAnswer(text) {
+      var t = " " + text.toLowerCase() + " ";
+      for (var g = 0; g < greetings.length; g++) {
+        if (t.indexOf(greetings[g]) !== -1) return "greet";
+      }
+      var best = null, bestScore = 0;
+      order.forEach(function (cat) {
+        var s = 0;
+        keywords[cat].forEach(function (k) { if (t.indexOf(k) !== -1) s++; });
+        if (s > bestScore) { bestScore = s; best = cat; }
+      });
+      return best;
+    }
+
+    var form = panel.querySelector(".chat-input");
+    var input = form.querySelector("input");
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      var v = input.value.trim();
+      if (!v) return;
+      addMsg(escapeHtml(v), "user");
+      input.value = "";
+      var key = matchAnswer(v);
+      if (key === "greet") {
+        botReply("Hallo! Gerne helfe ich weiter – fragen Sie z. B. nach Öffnungszeiten, Preisen, Termin, Anfahrt oder Leistungen.");
+      } else if (key) {
+        botReply(answers[key]);
+      } else {
+        botReply("Das habe ich nicht ganz verstanden. Ich helfe bei Öffnungszeiten, Preisen, Termin, Anfahrt und Leistungen – oder rufen Sie uns an: <a href=\"tel:+41763450011\">076 345 00 11</a>.");
+      }
     });
 
     function openChat() {

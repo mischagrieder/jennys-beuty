@@ -1218,6 +1218,39 @@ body.chat-open .chat-panel { opacity: 1; transform: none; pointer-events: auto; 
   color: #fff;
   border-color: var(--col-gold);
 }
+.chat-input {
+  display: flex;
+  gap: 0.5rem;
+  padding: 0.7rem 0.8rem 0.85rem;
+  border-top: 1px solid var(--col-border);
+  background: #fff;
+}
+.chat-input input {
+  flex: 1;
+  min-width: 0;
+  border: 1px solid var(--col-border);
+  border-radius: 999px;
+  padding: 0.6rem 0.95rem;
+  font-family: var(--font-body);
+  font-size: var(--fs-14);
+  color: var(--col-ink);
+  background: var(--col-surface);
+}
+.chat-input input:focus { outline: none; border-color: var(--col-gold); }
+.chat-input button {
+  flex: none;
+  width: 42px;
+  border: none;
+  border-radius: 50%;
+  background: var(--col-gold);
+  color: #fff;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  transition: background 0.25s ease;
+}
+.chat-input button:hover { background: var(--col-gold-muted); }
+.chat-input button svg { width: 18px; height: 18px; }
 
 /* --------------------------------------------------------------------------
    Spalten-Utilities
