@@ -153,8 +153,8 @@ summary:focus-visible {
   background-image: radial-gradient(rgba(178, 108, 119, 0.10) 1.3px, transparent 1.3px);
   background-size: 24px 24px;
 }
-/* Grau (klarer Kontrast zu den weissen Bereichen) */
-.section--grey { background-color: #D9D9DC; }
+/* Rosa (klarer Kontrast zu den weissen Bereichen) */
+.section--rose { background-color: #F0CDD6; }
 .section--tight { padding-block: clamp(2.5rem, 5vw, 4rem); }
 
 /* Sektionstitel mit goldenem Vertikalstrich (Signatur).
