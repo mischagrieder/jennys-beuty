@@ -835,6 +835,8 @@ body.menu-open .nav__toggle span:nth-child(3) { transform: translateY(-8px) rota
 /* "Vorher" wird als entsättigte Variante desselben Fotos dargestellt,
    bis echte Vorher-Bilder eingesetzt werden. */
 .ba__before .ba__img { filter: grayscale(0.95) brightness(0.82) contrast(0.95); }
+/* Bei echten Vorher-Fotos (.ba--real) kein Graufilter – volle Farbe */
+.ba--real .ba__before .ba__img { filter: none; }
 
 .ba__range {
   position: absolute;
