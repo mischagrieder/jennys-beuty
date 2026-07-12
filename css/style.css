@@ -34,7 +34,7 @@
   --font-body: "Montserrat", "Helvetica Neue", Arial, sans-serif;
 
   /* kompaktere vertikale Rhythmik */
-  --space-section: clamp(3.5rem, 7vw, 6.5rem);
+  --space-section: clamp(2.25rem, 4.5vw, 4.25rem);
   --space-gutter: clamp(1.25rem, 4vw, 3rem);
   --nav-h: 4.5rem;
 }
@@ -153,8 +153,8 @@ summary:focus-visible {
   background-image: radial-gradient(rgba(178, 108, 119, 0.10) 1.3px, transparent 1.3px);
   background-size: 24px 24px;
 }
-/* leichtes Grau (Kontrast zu den weissen Bereichen) */
-.section--grey { background-color: #ECECEE; }
+/* Grau (klarer Kontrast zu den weissen Bereichen) */
+.section--grey { background-color: #D9D9DC; }
 .section--tight { padding-block: clamp(2.5rem, 5vw, 4rem); }
 
 /* Sektionstitel mit goldenem Vertikalstrich (Signatur).
