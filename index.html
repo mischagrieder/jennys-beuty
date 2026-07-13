@@ -24,7 +24,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/css/style.css?v=4">
+  <link rel="stylesheet" href="/css/style.css?v=5">
 
   <script type="application/ld+json">
   {
@@ -60,8 +60,6 @@
     <a class="nav__brand" href="/">Jenny's Beauty</a>
     <nav aria-label="Hauptnavigation">
       <ul class="nav__links">
-        <li><a href="/damen/">Damen</a></li>
-        <li><a href="/herren/">Herren</a></li>
         <li><a href="/galerie/">Galerie</a></li>
         <li><a href="/salon/">Salon</a></li>
         <li><a href="/team/">Team</a></li>
@@ -76,8 +74,6 @@
   <div class="menu-overlay" id="mobilmenu">
     <nav aria-label="Mobile Navigation">
       <ul>
-        <li><a href="/damen/">Damen</a></li>
-        <li><a href="/herren/">Herren</a></li>
         <li><a href="/galerie/">Galerie</a></li>
         <li><a href="/salon/">Salon</a></li>
         <li><a href="/team/">Team</a></li>
@@ -124,53 +120,107 @@
       </div>
     </section>
 
-    <!-- Unsere Dienstleistungen -->
+    <!-- Preisplan (Tabs) -->
     <section class="section section--rose">
       <div class="wrap">
-        <div class="sec-head sec-head--sub reveal">
-          <span class="label">Unsere Dienstleistungen</span>
-          <h2>Für Damen, Herren &amp; Kinder</h2>
+        <div class="sec-head sec-head--center reveal">
+          <span class="label">Preisplan</span>
+          <h2>Preise für Dienstleistungen</h2>
         </div>
-        <div class="services-menu">
-          <article class="menu-card reveal">
-            <h3>Damen</h3>
-            <ul class="menu-list">
-              <li>Waschen, Schneiden &amp; Styling</li>
-              <li>Cut &amp; Go</li>
-              <li>Farbe &amp; Tönung</li>
-              <li>Mèches &amp; Balayage</li>
-              <li>Dauerwelle</li>
-              <li>Hochsteckfrisuren &amp; Frisieren</li>
-              <li>Maniküre &amp; Nägel</li>
-              <li>Augenbrauen &amp; Kosmetik</li>
-            </ul>
-            <a class="cta-link" href="/damen/">Details &amp; Preise</a>
-          </article>
 
-          <article class="menu-card reveal">
-            <h3>Herren</h3>
-            <ul class="menu-list menu-list--priced">
-              <li><span>Waschen / Schneiden / Styling</span><span class="price">55.–</span></li>
-              <li><span>Waschen / Schneiden</span><span class="price">50.–</span></li>
-              <li><span>Maschinenschnitt</span><span class="price">30.–</span></li>
-              <li><span>Cut &amp; Go</span><span class="price">40.–</span></li>
-              <li><span>Konturen (Haare oder Bart)</span><span class="price">25.–</span></li>
-              <li><span>Färben / Schneiden / Styling</span><span class="price">120.–</span></li>
-            </ul>
-            <a class="cta-link" href="/herren/">Alle Herren-Preise</a>
-          </article>
+        <div class="priceplan reveal" data-priceplan>
+          <div class="priceplan-tabs" role="tablist" aria-label="Preiskategorien">
+            <button class="priceplan-tab" type="button" role="tab" aria-selected="true"  aria-controls="tab-damen">Damen</button>
+            <button class="priceplan-tab" type="button" role="tab" aria-selected="false" aria-controls="tab-herren">Herren</button>
+            <button class="priceplan-tab" type="button" role="tab" aria-selected="false" aria-controls="tab-dauerwelle">Dauerwelle</button>
+            <button class="priceplan-tab" type="button" role="tab" aria-selected="false" aria-controls="tab-blondieren">Blondieren</button>
+            <button class="priceplan-tab" type="button" role="tab" aria-selected="false" aria-controls="tab-beauty">Beauty</button>
+            <button class="priceplan-tab" type="button" role="tab" aria-selected="false" aria-controls="tab-kinder">Kinderhaarschnitte</button>
+          </div>
 
-          <article class="menu-card reveal">
-            <h3>Kinder</h3>
-            <ul class="menu-list menu-list--priced">
-              <li><span>0–6 Jahre</span><span class="price">20.–</span></li>
-              <li><span>7–10 Jahre</span><span class="price">30.–</span></li>
-              <li><span>11–14 Jahre</span><span class="price">35.–</span></li>
-              <li><span>Waschen / Stylen</span><span class="price">30.–</span></li>
-              <li><span>Dauerwelle Oberkopf</span><span class="price">60.–</span></li>
-            </ul>
-            <a class="cta-link" href="https://jennys-beauty.hairlist.ch/login" target="_blank" rel="noopener">Termin vereinbaren</a>
-          </article>
+          <!-- DAMEN (aus dem Screenshot) -->
+          <div class="priceplan-panel is-active" id="tab-damen" role="tabpanel">
+            <div class="price-cards">
+              <article class="price-card"><h4>Mèches, Waschen, Schneiden, Föhnen</h4><p class="pc-note">Preis je nach Aufwand</p><p class="pc-price">2 Std 15 Min · 200,00 CHF</p><a class="pc-book" href="https://jennys-beauty.hairlist.ch/login" target="_blank" rel="noopener">Buche jetzt</a></article>
+              <article class="price-card"><h4>Farbe, Waschen, Schneiden, Föhnen</h4><p class="pc-note">Preis je nach Haarmenge</p><p class="pc-price">1 Std 30 Min · 120,00 CHF</p><a class="pc-book" href="https://jennys-beauty.hairlist.ch/login" target="_blank" rel="noopener">Buche jetzt</a></article>
+              <article class="price-card"><h4>Waschen, Schneiden, Föhnen mit Bürste</h4><p class="pc-note">Kurzhaar</p><p class="pc-price">30 Min · 50,00 CHF</p><a class="pc-book" href="https://jennys-beauty.hairlist.ch/login" target="_blank" rel="noopener">Buche jetzt</a></article>
+              <article class="price-card"><h4>Waschen, Föhnen mit Bürste</h4><p class="pc-note">Kurzhaar</p><p class="pc-price">30 Min · 35,00 CHF</p><a class="pc-book" href="https://jennys-beauty.hairlist.ch/login" target="_blank" rel="noopener">Buche jetzt</a></article>
+              <article class="price-card"><h4>Waschen, Schneiden, Föhnen mit Bürste</h4><p class="pc-note">Mittellanges Haar</p><p class="pc-price">1 Std · 90,00 CHF</p><a class="pc-book" href="https://jennys-beauty.hairlist.ch/login" target="_blank" rel="noopener">Buche jetzt</a></article>
+              <article class="price-card"><h4>Waschen, Föhnen mit Bürste</h4><p class="pc-note">Mittellanges Haar</p><p class="pc-price">40 Min · 50,00 CHF</p><a class="pc-book" href="https://jennys-beauty.hairlist.ch/login" target="_blank" rel="noopener">Buche jetzt</a></article>
+              <article class="price-card"><h4>Waschen, Schneiden, Föhnen mit Bürste</h4><p class="pc-note">Langes Haar</p><p class="pc-price">1 Std · 100,00 CHF</p><a class="pc-book" href="https://jennys-beauty.hairlist.ch/login" target="_blank" rel="noopener">Buche jetzt</a></article>
+              <article class="price-card"><h4>Waschen, Föhnen mit Bürste</h4><p class="pc-note">Langes Haar</p><p class="pc-price">50 Min · 70,00 CHF</p><a class="pc-book" href="https://jennys-beauty.hairlist.ch/login" target="_blank" rel="noopener">Buche jetzt</a></article>
+              <article class="price-card"><h4>Waschen, Schneiden, selber Föhnen</h4><p class="pc-price">30 Min · 80,00 CHF</p><a class="pc-book" href="https://jennys-beauty.hairlist.ch/login" target="_blank" rel="noopener">Buche jetzt</a></article>
+              <article class="price-card"><h4>Farbe</h4><p class="pc-note">je nach Haarmenge</p><p class="pc-price">45 Min · 60,00 CHF</p><a class="pc-book" href="https://jennys-beauty.hairlist.ch/login" target="_blank" rel="noopener">Buche jetzt</a></article>
+              <article class="price-card"><h4>Waschen, Föhnen</h4><p class="pc-price">45 Min · 25,00 CHF</p><a class="pc-book" href="https://jennys-beauty.hairlist.ch/login" target="_blank" rel="noopener">Buche jetzt</a></article>
+              <article class="price-card"><h4>Hochstecken, Hochzeitsfrisur</h4><p class="pc-price">1 Std · 50,00 CHF</p><a class="pc-book" href="https://jennys-beauty.hairlist.ch/login" target="_blank" rel="noopener">Buche jetzt</a></article>
+              <article class="price-card"><h4>Olaplex</h4><p class="pc-price">20 Min · 70,00 CHF</p><a class="pc-book" href="https://jennys-beauty.hairlist.ch/login" target="_blank" rel="noopener">Buche jetzt</a></article>
+            </div>
+          </div>
+
+          <!-- HERREN (aus früherer Preisliste – bitte prüfen) -->
+          <div class="priceplan-panel" id="tab-herren" role="tabpanel" hidden>
+            <div class="price-cards">
+              <article class="price-card"><h4>Waschen / Schneiden / Styling</h4><p class="pc-price">55,00 CHF</p><a class="pc-book" href="https://jennys-beauty.hairlist.ch/login" target="_blank" rel="noopener">Buche jetzt</a></article>
+              <article class="price-card"><h4>Waschen / Schneiden</h4><p class="pc-price">50,00 CHF</p><a class="pc-book" href="https://jennys-beauty.hairlist.ch/login" target="_blank" rel="noopener">Buche jetzt</a></article>
+              <article class="price-card"><h4>Waschen / Maschinenschnitt</h4><p class="pc-price">35,00 CHF</p><a class="pc-book" href="https://jennys-beauty.hairlist.ch/login" target="_blank" rel="noopener">Buche jetzt</a></article>
+              <article class="price-card"><h4>Maschinenschnitt</h4><p class="pc-price">30,00 CHF</p><a class="pc-book" href="https://jennys-beauty.hairlist.ch/login" target="_blank" rel="noopener">Buche jetzt</a></article>
+              <article class="price-card"><h4>Cut &amp; Go</h4><p class="pc-price">40,00 CHF</p><a class="pc-book" href="https://jennys-beauty.hairlist.ch/login" target="_blank" rel="noopener">Buche jetzt</a></article>
+              <article class="price-card"><h4>Konturen (Haare oder Bart)</h4><p class="pc-price">25,00 CHF</p><a class="pc-book" href="https://jennys-beauty.hairlist.ch/login" target="_blank" rel="noopener">Buche jetzt</a></article>
+              <article class="price-card"><h4>Waschen / Schneiden / Bart / Augenbrauen</h4><p class="pc-price">70,00 CHF</p><a class="pc-book" href="https://jennys-beauty.hairlist.ch/login" target="_blank" rel="noopener">Buche jetzt</a></article>
+              <article class="price-card"><h4>Färben / Schneiden / Styling</h4><p class="pc-price">120,00 CHF</p><a class="pc-book" href="https://jennys-beauty.hairlist.ch/login" target="_blank" rel="noopener">Buche jetzt</a></article>
+              <article class="price-card"><h4>Mèches / Bleichen</h4><p class="pc-price">65,00 CHF</p><a class="pc-book" href="https://jennys-beauty.hairlist.ch/login" target="_blank" rel="noopener">Buche jetzt</a></article>
+              <article class="price-card"><h4>Tönung</h4><p class="pc-price">60,00 CHF</p><a class="pc-book" href="https://jennys-beauty.hairlist.ch/login" target="_blank" rel="noopener">Buche jetzt</a></article>
+            </div>
+          </div>
+
+          <!-- DAUERWELLE (aus früherer Preisliste – bitte prüfen) -->
+          <div class="priceplan-panel" id="tab-dauerwelle" role="tabpanel" hidden>
+            <div class="price-cards">
+              <article class="price-card"><h4>Dauerwelle</h4><p class="pc-note">Kurz · Mittel · Lang</p><p class="pc-price">80 / 100 / 120 CHF</p><a class="pc-book" href="https://jennys-beauty.hairlist.ch/login" target="_blank" rel="noopener">Buche jetzt</a></article>
+              <article class="price-card"><h4>Dauerwelle Oberkopf</h4><p class="pc-note">Kinder</p><p class="pc-price">60,00 CHF</p><a class="pc-book" href="https://jennys-beauty.hairlist.ch/login" target="_blank" rel="noopener">Buche jetzt</a></article>
+            </div>
+          </div>
+
+          <!-- BLONDIEREN (aus früherer Preisliste – bitte prüfen) -->
+          <div class="priceplan-panel" id="tab-blondieren" role="tabpanel" hidden>
+            <div class="price-cards">
+              <article class="price-card"><h4>Oberkopf-Mèches / Styling</h4><p class="pc-note">Kurz · Mittel · Lang</p><p class="pc-price">135 / 155 / 175 CHF</p><a class="pc-book" href="https://jennys-beauty.hairlist.ch/login" target="_blank" rel="noopener">Buche jetzt</a></article>
+              <article class="price-card"><h4>Oberkopf-Mèches / Schneiden / Styling</h4><p class="pc-note">Kurz · Mittel · Lang</p><p class="pc-price">175 / 185 / 205 CHF</p><a class="pc-book" href="https://jennys-beauty.hairlist.ch/login" target="_blank" rel="noopener">Buche jetzt</a></article>
+              <article class="price-card"><h4>Halber Kopf Mèches / Styling</h4><p class="pc-note">Kurz · Mittel · Lang</p><p class="pc-price">165 / 175 / 205 CHF</p><a class="pc-book" href="https://jennys-beauty.hairlist.ch/login" target="_blank" rel="noopener">Buche jetzt</a></article>
+              <article class="price-card"><h4>Halber Kopf Mèches / Schneiden / Styling</h4><p class="pc-note">Kurz · Mittel · Lang</p><p class="pc-price">195 / 215 / 245 CHF</p><a class="pc-book" href="https://jennys-beauty.hairlist.ch/login" target="_blank" rel="noopener">Buche jetzt</a></article>
+              <article class="price-card"><h4>Balayage / Mèches inkl. Schneiden &amp; Styling</h4><p class="pc-note">Mittel · Lang</p><p class="pc-price">275 / 295 CHF</p><a class="pc-book" href="https://jennys-beauty.hairlist.ch/login" target="_blank" rel="noopener">Buche jetzt</a></article>
+              <article class="price-card"><h4>Balayage / Mèches inkl. Styling</h4><p class="pc-note">Mittel · Lang</p><p class="pc-price">245 / 265 CHF</p><a class="pc-book" href="https://jennys-beauty.hairlist.ch/login" target="_blank" rel="noopener">Buche jetzt</a></article>
+            </div>
+          </div>
+
+          <!-- BEAUTY (aus früherer Preisliste – bitte prüfen) -->
+          <div class="priceplan-panel" id="tab-beauty" role="tabpanel" hidden>
+            <div class="price-cards">
+              <article class="price-card"><h4>Augenbrauen zupfen</h4><p class="pc-price">20,00 CHF</p><a class="pc-book" href="https://jennys-beauty.hairlist.ch/login" target="_blank" rel="noopener">Buche jetzt</a></article>
+              <article class="price-card"><h4>Augenbrauen färben</h4><p class="pc-price">20,00 CHF</p><a class="pc-book" href="https://jennys-beauty.hairlist.ch/login" target="_blank" rel="noopener">Buche jetzt</a></article>
+              <article class="price-card"><h4>Augenbrauen zupfen &amp; färben</h4><p class="pc-price">35,00 CHF</p><a class="pc-book" href="https://jennys-beauty.hairlist.ch/login" target="_blank" rel="noopener">Buche jetzt</a></article>
+              <article class="price-card"><h4>Wimpern färben</h4><p class="pc-price">20,00 CHF</p><a class="pc-book" href="https://jennys-beauty.hairlist.ch/login" target="_blank" rel="noopener">Buche jetzt</a></article>
+              <article class="price-card"><h4>Oberlippe</h4><p class="pc-price">15,00 CHF</p><a class="pc-book" href="https://jennys-beauty.hairlist.ch/login" target="_blank" rel="noopener">Buche jetzt</a></article>
+              <article class="price-card"><h4>Gesicht enthaaren mit Faden</h4><p class="pc-price">30,00 CHF</p><a class="pc-book" href="https://jennys-beauty.hairlist.ch/login" target="_blank" rel="noopener">Buche jetzt</a></article>
+              <article class="price-card"><h4>Neues Set Gel / Acryl</h4><p class="pc-note">Nägel</p><p class="pc-price">120,00 CHF</p><a class="pc-book" href="https://jennys-beauty.hairlist.ch/login" target="_blank" rel="noopener">Buche jetzt</a></article>
+              <article class="price-card"><h4>Auffüllen Gel / Acryl</h4><p class="pc-note">Nägel</p><p class="pc-price">78,00 CHF</p><a class="pc-book" href="https://jennys-beauty.hairlist.ch/login" target="_blank" rel="noopener">Buche jetzt</a></article>
+              <article class="price-card"><h4>Gellack Hände</h4><p class="pc-note">Nägel</p><p class="pc-price">58,00 CHF</p><a class="pc-book" href="https://jennys-beauty.hairlist.ch/login" target="_blank" rel="noopener">Buche jetzt</a></article>
+              <article class="price-card"><h4>Gellack Füsse</h4><p class="pc-note">Nägel</p><p class="pc-price">58,00 CHF</p><a class="pc-book" href="https://jennys-beauty.hairlist.ch/login" target="_blank" rel="noopener">Buche jetzt</a></article>
+              <article class="price-card"><h4>Maniküre</h4><p class="pc-note">Nägel</p><p class="pc-price">35,00 CHF</p><a class="pc-book" href="https://jennys-beauty.hairlist.ch/login" target="_blank" rel="noopener">Buche jetzt</a></article>
+              <article class="price-card"><h4>Pediküre</h4><p class="pc-note">Nägel</p><p class="pc-price">35,00 CHF</p><a class="pc-book" href="https://jennys-beauty.hairlist.ch/login" target="_blank" rel="noopener">Buche jetzt</a></article>
+            </div>
+          </div>
+
+          <!-- KINDERHAARSCHNITTE (aus früherer Preisliste – bitte prüfen) -->
+          <div class="priceplan-panel" id="tab-kinder" role="tabpanel" hidden>
+            <div class="price-cards">
+              <article class="price-card"><h4>Kinderhaarschnitt</h4><p class="pc-note">0–6 Jahre</p><p class="pc-price">20,00 CHF</p><a class="pc-book" href="https://jennys-beauty.hairlist.ch/login" target="_blank" rel="noopener">Buche jetzt</a></article>
+              <article class="price-card"><h4>Kinderhaarschnitt</h4><p class="pc-note">7–10 Jahre</p><p class="pc-price">30,00 CHF</p><a class="pc-book" href="https://jennys-beauty.hairlist.ch/login" target="_blank" rel="noopener">Buche jetzt</a></article>
+              <article class="price-card"><h4>Kinderhaarschnitt</h4><p class="pc-note">11–14 Jahre</p><p class="pc-price">35,00 CHF</p><a class="pc-book" href="https://jennys-beauty.hairlist.ch/login" target="_blank" rel="noopener">Buche jetzt</a></article>
+              <article class="price-card"><h4>Waschen / Stylen</h4><p class="pc-note">Kinder</p><p class="pc-price">30,00 CHF</p><a class="pc-book" href="https://jennys-beauty.hairlist.ch/login" target="_blank" rel="noopener">Buche jetzt</a></article>
+            </div>
+          </div>
+
         </div>
       </div>
     </section>
@@ -287,6 +337,6 @@
     </div>
   </footer>
 
-  <script src="/js/main.js?v=4" defer></script>
+  <script src="/js/main.js?v=5" defer></script>
 </body>
 </html>

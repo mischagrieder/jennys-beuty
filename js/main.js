@@ -336,6 +336,28 @@
   })();
 
   /* ---------------------------------------------------------------
+     Preisplan: Tabs umschalten
+     --------------------------------------------------------------- */
+  document.querySelectorAll("[data-priceplan]").forEach(function (pp) {
+    var tabs = pp.querySelectorAll(".priceplan-tab");
+    var panels = pp.querySelectorAll(".priceplan-panel");
+    tabs.forEach(function (tab) {
+      tab.addEventListener("click", function () {
+        var target = tab.getAttribute("aria-controls");
+        tabs.forEach(function (t) {
+          t.setAttribute("aria-selected", t === tab ? "true" : "false");
+        });
+        panels.forEach(function (panel) {
+          var active = panel.id === target;
+          panel.classList.toggle("is-active", active);
+          if (active) panel.removeAttribute("hidden");
+          else panel.setAttribute("hidden", "");
+        });
+      });
+    });
+  });
+
+  /* ---------------------------------------------------------------
      Jahreszahl im Footer
      --------------------------------------------------------------- */
   document.querySelectorAll("[data-year]").forEach(function (el) {
