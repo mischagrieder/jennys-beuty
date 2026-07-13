@@ -218,11 +218,13 @@ summary:focus-visible {
 
 .nav__brand {
   font-family: var(--font-display);
-  font-weight: 600;
+  font-weight: 800;
   font-size: var(--fs-16);
-  letter-spacing: 0.32em;
+  letter-spacing: 0.3em;
   text-transform: uppercase;
   color: var(--col-ivory);
+  flex: 0 0 auto;
+  white-space: nowrap;
 }
 .nav__brand:hover { color: var(--col-gold); }
 
@@ -235,11 +237,26 @@ summary:focus-visible {
 }
 .nav__links a {
   font-family: var(--font-display);
-  font-weight: 400;
+  font-weight: 600;
   font-size: var(--fs-14);
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--col-text);
+}
+/* Kopfzeile: Links links & rechts, Marke mittig, Funkeln */
+.nav__right { display: contents; }
+.nav__links--left { flex: 1; justify-content: flex-start; }
+.nav__links--right { flex: 1; justify-content: flex-end; }
+.nav__spark {
+  display: inline-block;
+  margin-left: 0.22em;
+  color: #D4AF37;
+  font-size: 0.85em;
+  animation: navspark 2.6s ease-in-out infinite;
+}
+@keyframes navspark {
+  0%, 100% { opacity: 0.5; transform: scale(0.8) rotate(0deg); }
+  50%      { opacity: 1;   transform: scale(1.2) rotate(20deg); }
 }
 .nav__links a:hover { color: var(--col-ivory); }
 .nav__links a[aria-current="page"] { color: var(--col-gold); }
@@ -1106,6 +1123,7 @@ html.no-js .reveal { opacity: 1; transform: none; transition: none; }
   .hero__media img { animation: none; }
   .hero__scroll::after { animation: none; }
   .fab { transition: opacity 0.2s ease; transform: none; }
+  .nav__spark { animation: none; }
 }
 
 /* --------------------------------------------------------------------------
