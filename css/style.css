@@ -1568,7 +1568,7 @@ main > aside[id] { scroll-margin-top: 5.5rem; }
 
 /* Vorher/Nachher im Spiegel-Rahmen */
 .ba-grid--mirror { align-items: start; }
-.ba-grid--mirror figure { text-align: center; }
+.ba-grid--mirror figure { text-align: center; margin: 0; }
 .ba-grid--mirror .ba {
   border-radius: 48% 48% 16px 16px / 26% 26% 16px 16px;
   box-shadow:
@@ -1579,3 +1579,13 @@ main > aside[id] { scroll-margin-top: 5.5rem; }
   margin-bottom: 1.1rem;
 }
 .ba-grid--mirror .ba__caption { text-align: center; }
+
+/* Gestaffelt: mittleres Bild tiefer, äussere höher gesetzt –
+   bricht die zentrale Linie und wirkt lebendiger.
+   Über margin-top gelöst, damit die reveal-Animation (transform)
+   erhalten bleibt. Nur im dreispaltigen Layout, sonst zurücksetzen. */
+@media (min-width: 901px) {
+  .ba-grid--mirror figure:nth-child(1) { margin-top: 0; }
+  .ba-grid--mirror figure:nth-child(2) { margin-top: 3.4rem; }
+  .ba-grid--mirror figure:nth-child(3) { margin-top: 1.4rem; }
+}
