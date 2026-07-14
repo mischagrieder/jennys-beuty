@@ -30,8 +30,8 @@
   --fs-49: clamp(2rem, 1.4rem + 3vw, 3.0625rem);
   --fs-hero: clamp(2.75rem, 1.4rem + 6vw, 5.5rem);
 
-  --font-display: "Montserrat", "Helvetica Neue", Arial, sans-serif;
-  --font-body: "Montserrat", "Helvetica Neue", Arial, sans-serif;
+  --font-display: "Poppins", "Helvetica Neue", Arial, sans-serif;
+  --font-body: "Poppins", "Helvetica Neue", Arial, sans-serif;
 
   /* kompaktere vertikale Rhythmik */
   --space-section: clamp(2.25rem, 4.5vw, 4.25rem);
@@ -1532,3 +1532,50 @@ body.menu-open .nav__toggle span { background: var(--col-ink); }
 @media (max-width: 700px) {
   .hero__side { flex-basis: 100%; max-width: none; }
 }
+
+/* ==========================================================================
+   One-Pager: Hamburger-Nav, graue Fläche, zentrierte Leads, Spiegel-Rahmen
+   ========================================================================== */
+
+/* Kopfzeile: nur Marke + Hamburger (immer sichtbar) */
+.nav--bar { justify-content: space-between; }
+.nav--bar .nav__toggle { display: block; }
+.nav--bar .nav__brand { flex: 0 0 auto; }
+
+/* Sanftes Scrollen zu den Ankern – fixe Leiste nicht überdecken */
+main > section[id],
+main > aside[id] { scroll-margin-top: 5.5rem; }
+
+/* Weitere Flächenfarbe: warmes Hellgrau (Abwechslung) */
+.section--grey { background-color: #EEEAEA; }
+
+/* Zentrierter Einleitungstext */
+.lead {
+  font-size: var(--fs-20);
+  color: var(--col-text);
+  max-width: 54ch;
+}
+.lead--center {
+  text-align: center;
+  margin-inline: auto;
+  margin-bottom: clamp(1.75rem, 4vw, 2.75rem);
+}
+
+/* Team-Karten im One-Pager: vier nebeneinander, kompakt */
+#team .team-grid { grid-template-columns: repeat(4, 1fr); }
+@media (max-width: 900px) { #team .team-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 520px) { #team .team-grid { grid-template-columns: 1fr; } }
+
+/* Vorher/Nachher im Spiegel-Rahmen */
+.ba-grid--mirror { align-items: start; }
+.ba-grid--mirror figure { text-align: center; }
+.ba-grid--mirror .ba {
+  border-radius: 48% 48% 16px 16px / 26% 26% 16px 16px;
+  box-shadow:
+    0 0 0 8px #f5e7ea,
+    0 0 0 11px #cbb2b7,
+    0 0 0 13px #f5e7ea,
+    0 24px 46px rgba(58, 58, 58, 0.22);
+  margin-bottom: 1.1rem;
+}
+.ba-grid--mirror .ba__caption { text-align: center; }

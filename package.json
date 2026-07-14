@@ -4,8 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "sirv . --host 0.0.0.0 --single",
-    "build": "rm -rf dist && mkdir -p dist && cp -r index.html favicon.svg robots.txt sitemap.xml css js img galerie salon team kontakt impressum datenschutz dist/",
-    "build:dev": "rm -rf dist && mkdir -p dist && cp -r index.html favicon.svg robots.txt sitemap.xml css js img galerie salon team kontakt impressum datenschutz dist/",
+    "build": "rm -rf dist && mkdir -p dist && cp -r index.html favicon.svg robots.txt sitemap.xml css js img impressum datenschutz dist/",
+    "build:dev": "rm -rf dist && mkdir -p dist && cp -r index.html favicon.svg robots.txt sitemap.xml css js img impressum datenschutz dist/",
     "start": "sirv dist --host 0.0.0.0 --single"
   },
   "devDependencies": {
