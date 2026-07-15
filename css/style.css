@@ -1704,7 +1704,32 @@ main > aside[id] { scroll-margin-top: 5.5rem; }
 .review-name { font-weight: 600; color: var(--col-ink); }
 .review-meta { font-size: 0.8rem; color: var(--col-text); }
 
-.reviews-cta { text-align: center; margin-top: 1.6rem; }
+.reviews-cta {
+  margin-top: 1.8rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.9rem 1.4rem;
+}
+/* Weisser Google-Button mit Logo */
+.btn--google {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  background: #fff;
+  color: var(--col-ink);
+  border: 1px solid rgba(58, 58, 58, 0.16);
+  box-shadow: 0 6px 16px rgba(58, 58, 58, 0.10);
+}
+.btn--google:hover {
+  background: #fff;
+  color: var(--col-ink);
+  border-color: rgba(58, 58, 58, 0.28);
+  box-shadow: 0 10px 22px rgba(58, 58, 58, 0.16);
+  transform: translateY(-1px);
+}
+.btn--google .gicon { display: inline-flex; }
 
 @media (prefers-reduced-motion: reduce) {
   .reviews-track { animation: none; transform: none; }
