@@ -875,6 +875,7 @@ body.menu-open .nav__toggle span:nth-child(3) { transform: translateY(-8px) rota
   --pos: 50%;
   user-select: none;
   touch-action: pan-y;
+  cursor: ew-resize;
 }
 .ba__img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 .ba__before { position: absolute; inset: 0; clip-path: inset(0 calc(100% - var(--pos)) 0 0); }
@@ -895,6 +896,9 @@ body.menu-open .nav__toggle span:nth-child(3) { transform: translateY(-8px) rota
   -webkit-appearance: none;
   appearance: none;
   background: transparent;
+  /* Zeigergesten steuert unser eigenes Skript (siehe main.js);
+     das Range bleibt nur für die Tastatur-Bedienung erhalten. */
+  pointer-events: none;
 }
 .ba__range::-webkit-slider-thumb { -webkit-appearance: none; width: 44px; height: 100%; }
 .ba__range::-moz-range-thumb { width: 44px; height: 100%; border: 0; background: transparent; }
@@ -910,21 +914,16 @@ body.menu-open .nav__toggle span:nth-child(3) { transform: translateY(-8px) rota
   pointer-events: none;
 }
 .ba__handle::after {
-  content: "‹ ›";
+  content: "";
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 40px;
-  height: 40px;
-  display: grid;
-  place-items: center;
+  width: 44px;
+  height: 44px;
   border-radius: 50%;
-  background: var(--col-gold);
-  color: var(--col-void);
-  font-family: var(--font-display);
-  font-size: var(--fs-14);
-  letter-spacing: 0.05em;
+  background: #fff url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2048%2048%27%3E%3Cg%20fill%3D%27%23141414%27%3E%3Crect%20x%3D%279%27%20y%3D%2712%27%20width%3D%2730%27%20height%3D%277%27%20rx%3D%273.5%27%2F%3E%3Crect%20x%3D%2711%27%20y%3D%2718%27%20width%3D%273%27%20height%3D%2718%27%20rx%3D%271.5%27%2F%3E%3Crect%20x%3D%2717%27%20y%3D%2718%27%20width%3D%273%27%20height%3D%2718%27%20rx%3D%271.5%27%2F%3E%3Crect%20x%3D%2723%27%20y%3D%2718%27%20width%3D%273%27%20height%3D%2718%27%20rx%3D%271.5%27%2F%3E%3Crect%20x%3D%2729%27%20y%3D%2718%27%20width%3D%273%27%20height%3D%2718%27%20rx%3D%271.5%27%2F%3E%3Crect%20x%3D%2735%27%20y%3D%2718%27%20width%3D%273%27%20height%3D%2718%27%20rx%3D%271.5%27%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E") center / 26px 26px no-repeat;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.35);
 }
 .ba__tag {
   position: absolute;

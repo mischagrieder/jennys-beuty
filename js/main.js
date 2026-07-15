@@ -103,13 +103,69 @@
      --------------------------------------------------------------- */
   document.querySelectorAll("[data-ba]").forEach(function (ba) {
     var range = ba.querySelector(".ba__range");
-    if (!range) return;
 
-    function apply() {
-      ba.style.setProperty("--pos", range.value + "%");
+    function setPos(clientX) {
+      var rect = ba.getBoundingClientRect();
+      var pct = ((clientX - rect.left) / rect.width) * 100;
+      pct = Math.max(0, Math.min(100, pct));
+      ba.style.setProperty("--pos", pct + "%");
+      if (range) range.value = Math.round(pct);
     }
-    range.addEventListener("input", apply);
-    apply();
+
+    var active = false;   // Regler wird gerade gezogen
+    var decided = false;  // Richtung (horizontal/vertikal) entschieden
+    var startX = 0, startY = 0, pid = null;
+
+    ba.addEventListener("pointerdown", function (e) {
+      if (e.pointerType === "mouse") {
+        // Desktop: sofort ziehen und zur Klickposition springen
+        active = true; decided = true;
+        try { ba.setPointerCapture(e.pointerId); } catch (err) {}
+        setPos(e.clientX);
+      } else {
+        // Touch/Pen: erst prüfen, ob horizontal (Regler) oder vertikal (Scrollen)
+        active = false; decided = false;
+        startX = e.clientX; startY = e.clientY; pid = e.pointerId;
+      }
+    });
+
+    ba.addEventListener("pointermove", function (e) {
+      if (active) {
+        setPos(e.clientX);
+        e.preventDefault();
+        return;
+      }
+      if (decided) return;
+      var dx = Math.abs(e.clientX - startX);
+      var dy = Math.abs(e.clientY - startY);
+      if (dx < 6 && dy < 6) return;
+      decided = true;
+      if (dx > dy) {
+        // horizontale Bewegung → Regler ziehen (nicht scrollen)
+        active = true;
+        try { ba.setPointerCapture(pid); } catch (err) {}
+        setPos(e.clientX);
+        e.preventDefault();
+      }
+      // vertikale Bewegung → Seite normal scrollen lassen
+    });
+
+    function end(e) {
+      active = false; decided = false;
+      try { ba.releasePointerCapture(e.pointerId); } catch (err) {}
+    }
+    ba.addEventListener("pointerup", end);
+    ba.addEventListener("pointercancel", end);
+
+    // Tastatur-Bedienung über das (unsichtbare) Range-Element
+    if (range) {
+      range.addEventListener("input", function () {
+        ba.style.setProperty("--pos", range.value + "%");
+      });
+      ba.style.setProperty("--pos", range.value + "%");
+    } else {
+      ba.style.setProperty("--pos", "50%");
+    }
   });
 
   /* ---------------------------------------------------------------
