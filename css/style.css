@@ -19,16 +19,21 @@
   --col-rose-soft: #F5DCDD;   /* helles Rosé */
   --col-ink: #33302F;         /* Text auf Gold/hellen Flächen */
 
-  /* Modular Scale 1.25 */
-  --fs-12: 0.75rem;
-  --fs-14: 0.875rem;
-  --fs-16: 1rem;
-  --fs-20: 1.25rem;
-  --fs-25: 1.5625rem;
-  --fs-31: clamp(1.5625rem, 1.2rem + 1.5vw, 1.9375rem);
-  --fs-39: clamp(1.75rem, 1.3rem + 2.2vw, 2.4375rem);
-  --fs-49: clamp(2rem, 1.4rem + 3vw, 3.0625rem);
-  --fs-hero: clamp(2.75rem, 1.4rem + 6vw, 5.5rem);
+  /* NUR DREI SCHRIFTGRÖSSEN auf der ganzen Seite */
+  --fs-base: 1rem;                                 /* alle Texte (Poppins) */
+  --fs-lg: clamp(2rem, 1.3rem + 2.8vw, 3.1rem);    /* alle Titel (Playfair) */
+  --fs-xl: clamp(3.25rem, 1.8rem + 6vw, 6rem);     /* Haupttitel im Hero */
+
+  /* Alte Skala auf die drei Grössen umgelenkt */
+  --fs-12: var(--fs-base);
+  --fs-14: var(--fs-base);
+  --fs-16: var(--fs-base);
+  --fs-20: var(--fs-base);
+  --fs-25: var(--fs-lg);
+  --fs-31: var(--fs-lg);
+  --fs-39: var(--fs-lg);
+  --fs-49: var(--fs-lg);
+  --fs-hero: var(--fs-xl);
 
   --font-display: "Playfair Display", "Times New Roman", Georgia, serif;
   --font-body: "Poppins", "Helvetica Neue", Arial, sans-serif;
@@ -69,14 +74,17 @@ body {
 
 img { display: block; max-width: 100%; height: auto; border-radius: 0; }
 
-h1, h2, h3 {
+h1, h2, h3, h4 {
   font-family: var(--font-display);
-  font-weight: 700;
+  font-weight: 800;
   color: var(--col-ivory);
-  line-height: 1.14;
-  letter-spacing: -0.005em;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
   margin: 0 0 1.25rem;
 }
+/* Nur drei Grössen: Titel = --fs-lg, kleine Titel (h4) = --fs-base */
+h1, h2, h3 { font-size: var(--fs-lg); }
+h4 { font-size: var(--fs-base); margin-bottom: 0.5rem; }
 
 /* Überschriften in Serifen-Schrift mit Farbverlauf Anthrazit → Mauve/Rosa.
    Gilt für h2/h3 auf hellen Flächen; der Hero-Titel (h1) bleibt weiss. */
@@ -438,16 +446,26 @@ body.menu-open .nav__toggle span:nth-child(3) { transform: translateY(-8px) rota
   line-height: 0.98;
   letter-spacing: 0.01em;
   color: #fff;
-  margin: 0 0 1rem;
+  margin: 0 0 0.5rem;
   text-transform: uppercase;
+}
+.hero__subtitle {
+  font-family: var(--font-body);
+  text-transform: uppercase;
+  letter-spacing: 0.28em;
+  font-weight: 500;
+  font-size: var(--fs-base);
+  color: #fff;
+  opacity: 0.92;
+  margin: 0 0 1rem;
 }
 .hero__tag {
   font-family: var(--font-body);
   font-style: italic;
-  font-size: var(--fs-25);
+  font-size: var(--fs-base);
   color: var(--col-ivory);
   opacity: 0.9;
-  max-width: 26ch;
+  max-width: 34ch;
   margin: 0 0 2rem;
 }
 .hero__actions { margin-top: 0.5rem; }
@@ -1637,7 +1655,7 @@ main > aside[id] { scroll-margin-top: 5.5rem; }
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
   color: #fff;
-  font-size: 0.85rem;
+  font-size: var(--fs-base);
   font-weight: 500;
   line-height: 1;
 }
@@ -1705,7 +1723,7 @@ main > aside[id] { scroll-margin-top: 5.5rem; }
 .review-text {
   margin: 0;
   color: var(--col-ink);
-  font-size: 0.95rem;
+  font-size: var(--fs-base);
   line-height: 1.55;
   /* auf sechs Zeilen begrenzen – voller Text bleibt im DOM erhalten */
   display: -webkit-box;
@@ -1726,7 +1744,7 @@ main > aside[id] { scroll-margin-top: 5.5rem; }
 }
 .review-who { display: flex; flex-direction: column; line-height: 1.2; }
 .review-name { font-weight: 600; color: var(--col-ink); }
-.review-meta { font-size: 0.8rem; color: var(--col-text); }
+.review-meta { font-size: var(--fs-base); color: var(--col-text); }
 
 .reviews-cta {
   margin-top: 1.8rem;
