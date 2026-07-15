@@ -52,7 +52,11 @@
 *::before,
 *::after { box-sizing: border-box; }
 
-html { scroll-behavior: smooth; }
+html {
+  scroll-behavior: smooth;
+  /* Gesamtkontrast der Website um 20 % erhöht */
+  filter: contrast(1.2);
+}
 
 body {
   margin: 0;
