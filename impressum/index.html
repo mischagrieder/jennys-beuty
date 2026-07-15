@@ -15,26 +15,19 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,600&family=Poppins:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/css/style.css?v=17">
+  <link rel="stylesheet" href="/css/style.css?v=18">
 </head>
 <body>
   <a class="skip-link" href="#inhalt">Zum Inhalt springen</a>
 
   <header class="nav nav--solid nav--bar">
     <a class="nav__brand" href="/">Jenny's Beauty</a>
-    <ul class="nav__links">
-      <li><a href="/#ueber">Über uns</a></li>
-      <li><a href="/#ergebnisse">Ergebnisse</a></li>
-      <li><a href="/#bewertungen">Bewertungen</a></li>
-      <li><a href="/#preise">Preise</a></li>
-      <li><a href="/#team">Team</a></li>
-      <li><a href="/#zeiten">Öffnungszeiten</a></li>
-      <li><a href="/#kontakt">Kontakt</a></li>
-    </ul>
-    <a class="btn btn--nav" href="https://jennys-beauty.hairlist.ch/login" target="_blank" rel="noopener">Termin buchen</a>
-    <button class="nav__toggle" aria-expanded="false" aria-controls="mobilmenu" aria-label="Menü öffnen">
-      <span></span><span></span><span></span>
-    </button>
+    <div class="nav__actions">
+      <button class="nav__toggle" aria-expanded="false" aria-controls="mobilmenu" aria-label="Menü öffnen">
+        <span></span><span></span><span></span>
+      </button>
+      <a class="btn btn--nav" href="https://jennys-beauty.hairlist.ch/login" target="_blank" rel="noopener">Termin buchen</a>
+    </div>
   </header>
 
   <div class="menu-overlay" id="mobilmenu">
@@ -47,6 +40,7 @@
         <li><a href="/#team">Team</a></li>
         <li><a href="/#zeiten">Öffnungszeiten</a></li>
         <li><a href="/#kontakt">Kontakt</a></li>
+        <li><a class="menu-cta" href="https://jennys-beauty.hairlist.ch/login" target="_blank" rel="noopener">Termin buchen</a></li>
       </ul>
     </nav>
   </div>
@@ -114,6 +108,6 @@
     </div>
   </footer>
 
-  <script src="/js/main.js?v=17" defer></script>
+  <script src="/js/main.js?v=18" defer></script>
 </body>
 </html>

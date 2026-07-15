@@ -328,11 +328,9 @@ body.menu-open .nav__toggle span:nth-child(1) { transform: translateY(8px) rotat
 body.menu-open .nav__toggle span:nth-child(2) { opacity: 0; }
 body.menu-open .nav__toggle span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
 
-@media (max-width: 1100px) {
-  .nav__links { display: none; }
-  .nav__toggle { display: block; }
-  .btn--nav { display: none; }
-}
+/* Sichtbare Textlinks werden nicht mehr genutzt (Hamburger-Menü aktiv) */
+.nav__links { display: none; }
+.nav__toggle { display: block; }
 
 /* --------------------------------------------------------------------------
    Buttons & Text-CTAs
@@ -1569,19 +1567,40 @@ body.menu-open .nav__toggle span { background: var(--col-ink); }
    ========================================================================== */
 
 /* Kopfzeile: nur Marke + Hamburger (immer sichtbar) */
-/* Horizontale Kopfzeile: Marke, Links und Termin-Button als kompakte,
-   zentrierte Gruppe (Marke nah an den Links, Button nah an Kontakt) */
-.nav--bar { justify-content: center; gap: 1.6rem; }
-.nav--bar .nav__brand { flex: 0 0 auto; }
-.nav--bar .nav__links { flex: 0 0 auto; }
-.nav--bar .btn--nav { flex: 0 0 auto; }
+/* Kopfzeile: grosse, zentrierte Marke; rechts Hamburger + Termin-Button */
+.nav--bar {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 1rem;
+}
+.nav--bar .nav__brand {
+  grid-column: 2;
+  justify-self: center;
+  font-size: var(--fs-lg);
+  font-weight: 800;
+  text-transform: none;
+  letter-spacing: 0.01em;
+  line-height: 1;
+  white-space: nowrap;
+}
+.nav--bar .nav__actions {
+  grid-column: 3;
+  justify-self: end;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.nav--bar .nav__toggle { display: block; }
 
 /* Kompakter Termin-Button in der Kopfzeile */
 .btn--nav {
   padding: 0.6rem 1.25rem;
-  font-size: var(--fs-14);
+  font-size: var(--fs-base);
   letter-spacing: 0.04em;
   white-space: nowrap;
+}
+@media (max-width: 560px) {
+  .btn--nav { display: none; }
 }
 
 /* Sanftes Scrollen zu den Ankern – fixe Leiste nicht überdecken */
@@ -1777,3 +1796,19 @@ main > aside[id] { scroll-margin-top: 5.5rem; }
   .reviews-track { animation: none; transform: none; }
   .reviews-marquee { overflow-x: auto; -webkit-mask-image: none; mask-image: none; }
 }
+
+/* "Termin buchen" als Button im Hamburger-Menü */
+.menu-cta {
+  display: inline-block;
+  margin-top: 1.2rem;
+  padding: 0.75rem 1.8rem;
+  border-radius: 999px;
+  background: var(--col-gold);
+  color: #fff !important;
+  font-family: var(--font-body) !important;
+  font-weight: 600 !important;
+  font-size: var(--fs-base) !important;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+.menu-cta:hover { background: var(--col-gold-muted); }

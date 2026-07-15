@@ -24,7 +24,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,600&family=Poppins:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/css/style.css?v=17">
+  <link rel="stylesheet" href="/css/style.css?v=18">
 
   <script type="application/ld+json">
   {
@@ -58,19 +58,12 @@
 
   <header class="nav nav--bar">
     <a class="nav__brand" href="#top">Jenny's Beauty</a>
-    <ul class="nav__links">
-      <li><a href="#ueber">Über uns</a></li>
-      <li><a href="#ergebnisse">Ergebnisse</a></li>
-      <li><a href="#bewertungen">Bewertungen</a></li>
-      <li><a href="#preise">Preise</a></li>
-      <li><a href="#team">Team</a></li>
-      <li><a href="#zeiten">Öffnungszeiten</a></li>
-      <li><a href="#kontakt">Kontakt</a></li>
-    </ul>
-    <a class="btn btn--nav" href="https://jennys-beauty.hairlist.ch/login" target="_blank" rel="noopener">Termin buchen</a>
-    <button class="nav__toggle" aria-expanded="false" aria-controls="mobilmenu" aria-label="Menü öffnen">
-      <span></span><span></span><span></span>
-    </button>
+    <div class="nav__actions">
+      <button class="nav__toggle" aria-expanded="false" aria-controls="mobilmenu" aria-label="Menü öffnen">
+        <span></span><span></span><span></span>
+      </button>
+      <a class="btn btn--nav" href="https://jennys-beauty.hairlist.ch/login" target="_blank" rel="noopener">Termin buchen</a>
+    </div>
   </header>
 
   <div class="menu-overlay" id="mobilmenu">
@@ -83,6 +76,7 @@
         <li><a href="#team">Team</a></li>
         <li><a href="#zeiten">Öffnungszeiten</a></li>
         <li><a href="#kontakt">Kontakt</a></li>
+        <li><a class="menu-cta" href="https://jennys-beauty.hairlist.ch/login" target="_blank" rel="noopener">Termin buchen</a></li>
       </ul>
     </nav>
   </div>
@@ -104,21 +98,6 @@
           <a class="btn" href="https://jennys-beauty.hairlist.ch/login" target="_blank" rel="noopener">Termin vereinbaren</a>
           <a class="btn btn--ghost" href="#ergebnisse">Ergebnisse ansehen</a>
         </div>
-        <ul class="hero-trust" aria-label="Auf einen Blick">
-          <li class="hero-trust__item hero-trust__item--google">
-            <span class="gicon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" width="20" height="20">
-                <path fill="#4285F4" d="M23.52 12.27c0-.86-.08-1.69-.22-2.48H12v4.7h6.47a5.53 5.53 0 0 1-2.4 3.63v3h3.88c2.27-2.09 3.57-5.17 3.57-8.85z"/>
-                <path fill="#34A853" d="M12 24c3.24 0 5.96-1.07 7.95-2.91l-3.88-3c-1.08.72-2.45 1.15-4.07 1.15-3.13 0-5.78-2.11-6.73-4.96H1.28v3.09A12 12 0 0 0 12 24z"/>
-                <path fill="#FBBC05" d="M5.27 14.28a7.2 7.2 0 0 1 0-4.56V6.63H1.28a12 12 0 0 0 0 10.74l3.99-3.09z"/>
-                <path fill="#EA4335" d="M12 4.74c1.76 0 3.35.61 4.6 1.8l3.44-3.44C17.95 1.19 15.24 0 12 0A12 12 0 0 0 1.28 6.63l3.99 3.09C6.22 6.85 8.87 4.74 12 4.74z"/>
-              </svg>
-            </span>
-            <span class="hero-trust__text"><strong>5,0</strong> <span class="hero-trust__stars" aria-hidden="true">★★★★★</span> · 30+ Google-Bewertungen</span>
-          </li>
-          <li class="hero-trust__item"><span aria-hidden="true">✨</span> <span class="hero-trust__text">Hochwertige Keune-Produkte</span></li>
-          <li class="hero-trust__item"><span aria-hidden="true">📍</span> <span class="hero-trust__text">Rothrist · Breitenpark</span></li>
-        </ul>
       </div>
       <p class="hero__scroll" aria-hidden="true">Scrollen</p>
     </section>
@@ -657,6 +636,6 @@
     </div>
   </footer>
 
-  <script src="/js/main.js?v=17" defer></script>
+  <script src="/js/main.js?v=18" defer></script>
 </body>
 </html>
