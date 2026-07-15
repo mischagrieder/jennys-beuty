@@ -349,15 +349,16 @@ body.menu-open .nav__toggle span:nth-child(3) { transform: translateY(-8px) rota
 
 .btn {
   display: inline-block;
-  font-family: var(--font-display);
-  font-weight: 500;
+  font-family: var(--font-body);
+  font-weight: 600;
   font-size: var(--fs-14);
-  letter-spacing: 0.15em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--col-void);
   background: var(--col-gold);
-  padding: 0.9rem 1.9rem;
+  padding: 0.85rem 1.9rem;
   border: 1px solid var(--col-gold);
+  border-radius: 999px;
   transition: background 0.25s ease, color 0.25s ease;
 }
 .btn:hover { background: transparent; color: var(--col-gold); }
@@ -1550,10 +1551,11 @@ body.menu-open .nav__toggle span { background: var(--col-ink); }
    ========================================================================== */
 
 /* Kopfzeile: nur Marke + Hamburger (immer sichtbar) */
-/* Horizontale Kopfzeile: Marke links, Links mittig, Termin-Button rechts */
-.nav--bar { justify-content: flex-start; gap: 1.25rem; }
+/* Horizontale Kopfzeile: Marke, Links und Termin-Button als kompakte,
+   zentrierte Gruppe (Marke nah an den Links, Button nah an Kontakt) */
+.nav--bar { justify-content: center; gap: 1.6rem; }
 .nav--bar .nav__brand { flex: 0 0 auto; }
-.nav--bar .nav__links { flex: 1 1 auto; justify-content: center; }
+.nav--bar .nav__links { flex: 0 0 auto; }
 .nav--bar .btn--nav { flex: 0 0 auto; }
 
 /* Kompakter Termin-Button in der Kopfzeile */
