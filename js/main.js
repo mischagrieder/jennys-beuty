@@ -169,6 +169,68 @@
   });
 
   /* ---------------------------------------------------------------
+     Team-"Zeitung": Blättern per Klick, Wischen und Punkte
+     --------------------------------------------------------------- */
+  document.querySelectorAll("[data-paper]").forEach(function (paper) {
+    var track = paper.querySelector(".paper__track");
+    var pages = paper.querySelectorAll(".paper-page");
+    var prev = paper.querySelector(".paper__nav--prev");
+    var next = paper.querySelector(".paper__nav--next");
+    var dotsWrap = paper.querySelector(".paper__dots");
+    if (!track || !pages.length) return;
+
+    var index = 0;
+    var count = pages.length;
+    var dots = [];
+
+    if (dotsWrap) {
+      for (var i = 0; i < count; i++) {
+        var d = document.createElement("button");
+        d.className = "paper__dot";
+        d.type = "button";
+        d.setAttribute("aria-label", "Seite " + (i + 1));
+        (function (n) {
+          d.addEventListener("click", function () { go(n); });
+        })(i);
+        dotsWrap.appendChild(d);
+        dots.push(d);
+      }
+    }
+
+    function update() {
+      track.style.transform = "translateX(" + (-index * 100) + "%)";
+      dots.forEach(function (d, i) {
+        d.setAttribute("aria-selected", i === index ? "true" : "false");
+      });
+    }
+    function go(i) { index = (i + count) % count; update(); }
+
+    if (prev) prev.addEventListener("click", function () { go(index - 1); });
+    if (next) next.addEventListener("click", function () { go(index + 1); });
+
+    // Wischen (Touch/Maus): horizontale Bewegung blättert, vertikale scrollt
+    var startX = 0, startY = 0, decided = false, swiping = false;
+    paper.addEventListener("pointerdown", function (e) {
+      startX = e.clientX; startY = e.clientY; decided = false; swiping = true;
+    });
+    paper.addEventListener("pointermove", function (e) {
+      if (!swiping || decided) return;
+      var dx = e.clientX - startX;
+      var dy = e.clientY - startY;
+      if (Math.abs(dx) < 24 && Math.abs(dy) < 24) return;
+      decided = true;
+      swiping = false;
+      if (Math.abs(dx) > Math.abs(dy)) {
+        if (dx < 0) go(index + 1); else go(index - 1);
+      }
+    });
+    paper.addEventListener("pointerup", function () { swiping = false; });
+    paper.addEventListener("pointercancel", function () { swiping = false; });
+
+    update();
+  });
+
+  /* ---------------------------------------------------------------
      Kontaktformular: öffnet das Mailprogramm mit vorbereitetem Text
      --------------------------------------------------------------- */
   var form = document.querySelector("#kontakt-formular");

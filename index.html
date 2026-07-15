@@ -24,7 +24,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,600&family=Poppins:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/css/style.css?v=19">
+  <link rel="stylesheet" href="/css/style.css?v=20">
 
   <script type="application/ld+json">
   {
@@ -464,35 +464,121 @@
           <span class="label">Team</span>
           <h2>Jenny &amp; ihr Team</h2>
         </div>
-        <div class="team-grid">
-          <article class="member reveal">
-            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=900&auto=format&fit=crop"
-                 alt="Jenny, Inhaberin von Jenny's Beauty" loading="lazy">
-            <h3>Jenny</h3>
-            <span class="label label--gold">Inhaberin · Coiffeuse</span>
-            <p>Jenny führt den Salon mit Herzblut und einem Auge fürs Detail – von der Beratung bis zum letzten Föhnstoss soll bei Ihnen alles stimmen.</p>
-          </article>
-          <article class="member reveal">
-            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=900&auto=format&fit=crop"
-                 alt="Coiffeur für Damen und Herren" loading="lazy">
-            <h3>Coiffeur</h3>
-            <span class="label label--gold">Damen &amp; Herren</span>
-            <p>Schnitt, Farbe und Styling für Damen und Herren – modern oder klassisch, immer mit Sorgfalt und hochwertigen Keune-Produkten.</p>
-          </article>
-          <article class="member reveal">
-            <img src="https://images.unsplash.com/photo-1519699047748-de8e457a634e?q=80&w=900&auto=format&fit=crop"
-                 alt="Nagelstudio – Maniküre und Nagelmodellage" loading="lazy">
-            <h3>Nagelstudio</h3>
-            <span class="label label--gold">Maniküre &amp; Modellage</span>
-            <p>Gepflegte Hände, saubere Formen und eine Farbe, die zu Ihnen passt – vom klassischen Lack bis zur Nagelmodellage.</p>
-          </article>
-          <article class="member reveal">
-            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=900&auto=format&fit=crop"
-                 alt="Augenbrauen – formen und färben" loading="lazy">
-            <h3>Augenbrauen</h3>
-            <span class="label label--gold">Formen &amp; Färben</span>
-            <p>Brauen in die richtige Form gebracht und farblich betont – der kleine Schritt mit der grössten Wirkung für Ihren Blick.</p>
-          </article>
+        <p class="lead lead--center reveal">Wir als Team freuen uns, euch im Salon zu begrüssen – blättern Sie durch unsere «Ausgabe».</p>
+
+        <!-- Team als blätterbare Zeitung (klicken / wischen) -->
+        <div class="paper reveal" data-paper>
+          <div class="paper__viewport">
+            <div class="paper__track">
+
+              <!-- PLATZHALTER-FOTOS: echte Teamfotos (s/w) einsetzen -->
+              <article class="paper-page">
+                <div class="paper-page__masthead">
+                  <span class="paper-page__brand">Jenny's Beauty · Das Team</span>
+                  <span class="paper-page__edition">Rothrist · Ausgabe № 1</span>
+                </div>
+                <div class="paper-page__body">
+                  <figure class="paper-page__photo">
+                    <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=800&auto=format&fit=crop" alt="Jenny" loading="lazy" draggable="false">
+                  </figure>
+                  <div class="paper-page__col">
+                    <span class="paper-page__role">Inhaberin · Coiffeuse</span>
+                    <h3 class="paper-page__name">Jenny</h3>
+                    <p class="paper-page__leadtext">Führt den Salon mit Herzblut und einem Auge fürs Detail.</p>
+                    <ul class="paper-page__skills">
+                      <li>Nageldesignerin</li>
+                      <li>Farbexpertin</li>
+                      <li>Meches / Balayage</li>
+                      <li>Extension</li>
+                      <li>Schnitt &amp; Styling</li>
+                      <li>Herrenhaarschnitt</li>
+                      <li>Augenbrauen zupfen mit Faden</li>
+                    </ul>
+                  </div>
+                </div>
+              </article>
+
+              <article class="paper-page">
+                <div class="paper-page__masthead">
+                  <span class="paper-page__brand">Jenny's Beauty · Das Team</span>
+                  <span class="paper-page__edition">Rothrist · Ausgabe № 2</span>
+                </div>
+                <div class="paper-page__body">
+                  <figure class="paper-page__photo">
+                    <img src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?q=80&w=800&auto=format&fit=crop" alt="Renata" loading="lazy" draggable="false">
+                  </figure>
+                  <div class="paper-page__col">
+                    <span class="paper-page__role">Coiffeuse &amp; Stylistin</span>
+                    <h3 class="paper-page__name">Renata</h3>
+                    <p class="paper-page__leadtext">Farbe, Schnitt und Styling mit einem sicheren Gespür für Ihren Look.</p>
+                    <ul class="paper-page__skills">
+                      <li>Farbexpertin</li>
+                      <li>Meches / Balayage</li>
+                      <li>Extension</li>
+                      <li>Schnitt &amp; Styling</li>
+                      <li>Herrenhaarschnitt</li>
+                    </ul>
+                  </div>
+                </div>
+              </article>
+
+              <article class="paper-page">
+                <div class="paper-page__masthead">
+                  <span class="paper-page__brand">Jenny's Beauty · Das Team</span>
+                  <span class="paper-page__edition">Rothrist · Ausgabe № 3</span>
+                </div>
+                <div class="paper-page__body">
+                  <figure class="paper-page__photo">
+                    <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=800&auto=format&fit=crop" alt="Svjetlana" loading="lazy" draggable="false">
+                  </figure>
+                  <div class="paper-page__col">
+                    <span class="paper-page__role">Coiffeuse &amp; Stylistin</span>
+                    <h3 class="paper-page__name">Svjetlana</h3>
+                    <p class="paper-page__leadtext">Von Balayage bis Brauen – Handwerk mit Liebe zum Detail.</p>
+                    <ul class="paper-page__skills">
+                      <li>Farbexpertin</li>
+                      <li>Meches / Balayage</li>
+                      <li>Extension</li>
+                      <li>Schnitt &amp; Styling</li>
+                      <li>Herrenhaarschnitt</li>
+                      <li>Augenbrauen zupfen mit Faden</li>
+                    </ul>
+                  </div>
+                </div>
+              </article>
+
+              <article class="paper-page">
+                <div class="paper-page__masthead">
+                  <span class="paper-page__brand">Jenny's Beauty · Das Team</span>
+                  <span class="paper-page__edition">Rothrist · Ausgabe № 4</span>
+                </div>
+                <div class="paper-page__body">
+                  <figure class="paper-page__photo">
+                    <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=800&auto=format&fit=crop" alt="Karina" loading="lazy" draggable="false">
+                  </figure>
+                  <div class="paper-page__col">
+                    <span class="paper-page__role">Coiffeuse &amp; Stylistin</span>
+                    <h3 class="paper-page__name">Karina</h3>
+                    <p class="paper-page__leadtext">Farbe und Schnitt mit Persönlichkeit – für einen Look, der zu Ihnen passt.</p>
+                    <ul class="paper-page__skills">
+                      <li>Farbexpertin</li>
+                      <li>Meches / Balayage</li>
+                      <li>Schnitt &amp; Styling</li>
+                      <li>Herrenhaarschnitt</li>
+                      <li>Augenbrauen zupfen mit Faden</li>
+                    </ul>
+                  </div>
+                </div>
+              </article>
+
+            </div>
+          </div>
+
+          <button class="paper__nav paper__nav--prev" type="button" aria-label="Vorherige Seite">‹</button>
+          <button class="paper__nav paper__nav--next" type="button" aria-label="Nächste Seite">›</button>
+          <div class="paper__foot">
+            <div class="paper__dots" role="tablist" aria-label="Team-Seiten"></div>
+          </div>
         </div>
       </div>
     </section>
@@ -636,6 +722,6 @@
     </div>
   </footer>
 
-  <script src="/js/main.js?v=19" defer></script>
+  <script src="/js/main.js?v=20" defer></script>
 </body>
 </html>
