@@ -954,10 +954,11 @@ body.menu-open .nav__toggle span:nth-child(3) { transform: translateY(-8px) rota
 .ba__tag--after { right: 0.9rem; }
 .ba__caption {
   margin-top: 0.9rem;
-  font-family: var(--font-display);
+  font-family: var(--font-body);
+  font-weight: 700;
   font-size: var(--fs-14);
-  letter-spacing: 0.06em;
-  color: var(--col-text);
+  letter-spacing: 0.02em;
+  color: var(--col-ink);
 }
 
 /* FAQ */
