@@ -37,8 +37,8 @@
   --fs-49: var(--fs-lg);
   --fs-hero: var(--fs-xl);
 
-  /* Alles in Poppins (keine Serifenschrift mehr) */
-  --font-display: "Poppins", "Helvetica Neue", Arial, sans-serif;
+  /* Titelschrift = Sora (Test), Fliesstext = Poppins */
+  --font-display: "Sora", "Poppins", "Helvetica Neue", Arial, sans-serif;
   --font-body: "Poppins", "Helvetica Neue", Arial, sans-serif;
 
   /* kompaktere vertikale Rhythmik */
@@ -92,9 +92,10 @@ h1, h2, h3, h4 {
 h1, h2, h3 { font-size: var(--fs-lg); }
 h4 { font-size: var(--fs-base); margin-bottom: 0.5rem; }
 
-/* Grosse, fette Titel (h1/h2/h3) in der Mauve-Farbe der Buchen-Buttons.
-   Kleine Titel (h4) und alle übrigen Texte bleiben schwarz. */
-h1, h2, h3 { color: var(--col-gold-deep); }
+/* Grosse, fette Titel (h1/h2/h3): Titelschrift (Sora) in der Mauve-Farbe
+   der Buchen-Buttons. Kleine Titel (h4) und alle übrigen Texte bleiben
+   Poppins und schwarz. */
+h1, h2, h3 { font-family: var(--font-display); color: var(--col-gold-deep); }
 
 .amp { font-family: var(--font-body); font-weight: inherit; }
 
@@ -1987,14 +1988,22 @@ main > aside[id] { scroll-margin-top: 5.5rem; }
    MOBILE-ANPASSUNGEN (nur Handy)
    -------------------------------------------------------------------------- */
 @media (max-width: 620px) {
-  /* Vorher/Nachher-Bilder waren zu gross → kleiner und zentriert */
-  .ba-grid--mirror figure {
-    max-width: 300px;
-    margin-inline: auto;
+  /* Vorher/Nachher mobil: Flex-Spalte, alle Bilder exakt gleich gross */
+  .ba-grid.ba-grid--tri {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.75rem;
+    max-width: none;
   }
-}
-@media (max-width: 400px) {
-  .ba-grid--mirror figure { max-width: 260px; }
+  .ba-grid--tri > figure,
+  .ba-grid--tri > figure:nth-child(3) {
+    width: min(300px, 84vw);
+    max-width: none;
+    margin: 0;
+    justify-self: auto;
+    grid-column: auto;
+  }
 }
 
 /* --------------------------------------------------------------------------
