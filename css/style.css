@@ -20,9 +20,9 @@
   --col-ink: #111111;         /* Text – schwarz */
 
   /* NUR DREI SCHRIFTGRÖSSEN auf der ganzen Seite */
-  --fs-base: 1.0625rem;                            /* alle Texte (Poppins) – etwas grösser */
-  --fs-lg: clamp(2rem, 1.3rem + 2.8vw, 3.1rem);    /* grosse Titel (Playfair) */
-  --fs-xl: clamp(3.25rem, 1.8rem + 6vw, 6rem);     /* Haupttitel im Hero */
+  --fs-base: 1.0625rem;                              /* alle Texte (Poppins) */
+  --fs-lg: clamp(1.6rem, 1.15rem + 1.8vw, 2.35rem);  /* Titel – etwas kleiner */
+  --fs-xl: clamp(2.75rem, 1.7rem + 4.6vw, 4.75rem);  /* Haupttitel im Hero */
 
   --col-gold-deep: #964F5C;   /* dunkleres Mauve für Buttons */
 
@@ -83,11 +83,11 @@ img { display: block; max-width: 100%; height: auto; border-radius: 0; }
 
 h1, h2, h3, h4 {
   font-family: var(--font-body);
-  font-weight: 800;
+  font-weight: 700;
   color: var(--col-ivory);        /* Standard: schwarz */
-  line-height: 1.12;
+  line-height: 1.15;
   letter-spacing: 0;
-  margin: 0 0 1.25rem;
+  margin: 0 0 1.1rem;
 }
 h1, h2, h3 { font-size: var(--fs-lg); }
 h4 { font-size: var(--fs-base); margin-bottom: 0.5rem; }
@@ -2042,20 +2042,35 @@ main > aside[id] { scroll-margin-top: 5.5rem; }
 .price-list li {
   display: flex;
   align-items: baseline;
-  justify-content: space-between;
-  gap: 1.2rem;
-  padding: 0.55rem 0;
+  gap: 0.6rem 0.9rem;
+  padding: 0.6rem 0;
   border-top: 1px dashed var(--col-border);
 }
-.pl-name { font-weight: 500; }
+.pl-name { flex: 1 1 auto; font-weight: 500; }
 .pl-note {
   display: block;
   font-style: normal;
   font-size: 0.82em;
   opacity: 0.75;
 }
-.pl-price { white-space: nowrap; font-weight: 700; }
+.pl-price { white-space: nowrap; font-weight: 700; text-align: right; min-width: 6.5rem; }
 .pl-chf { font-weight: 500; font-size: 0.85em; }
+/* Kleines "Buchen" rechts neben dem Preis */
+.pl-book {
+  flex: none;
+  white-space: nowrap;
+  align-self: center;
+  font-size: 0.72em;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--col-gold-deep);
+  border: 1px solid var(--col-gold-deep);
+  border-radius: 999px;
+  padding: 0.28rem 0.75rem;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+.pl-book:hover { background: var(--col-gold-deep); color: #fff; }
 .priceplan-cta { text-align: center; margin-top: 1.8rem; }
 
 /* --------------------------------------------------------------------------
