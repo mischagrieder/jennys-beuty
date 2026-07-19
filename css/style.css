@@ -2109,3 +2109,38 @@ main > aside[id] { scroll-margin-top: 5.5rem; }
   .duo { gap: 0.75rem; }
   /* etwas mehr Rand links/rechts wird über --space-gutter geregelt */
 }
+
+/* --------------------------------------------------------------------------
+   Wortmarke / Logo im Header (nachgebaut, transparent – folgt der Nav-Farbe)
+   -------------------------------------------------------------------------- */
+.nav__brand--logo { padding: 0; overflow: visible; }
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  line-height: 1;
+  color: currentColor;
+}
+.logo__side {
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 500;
+  font-size: 0.6rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  padding: 0.36em 0.6em 0.36em 0.74em;
+  border: 1.5px solid currentColor;
+  white-space: nowrap;
+}
+.logo__mono {
+  font-family: "Pinyon Script", "Segoe Script", cursive;
+  font-weight: 400;
+  font-size: 2.3rem;
+  letter-spacing: 0;
+  text-transform: none;
+  margin-block: -0.28em;   /* Über-/Unterlänge nicht die Leiste sprengen */
+}
+@media (max-width: 620px) {
+  .logo { gap: 0.4rem; }
+  .logo__side { font-size: 0.5rem; letter-spacing: 0.16em; padding: 0.32em 0.5em 0.32em 0.6em; }
+  .logo__mono { font-size: 1.95rem; }
+}
