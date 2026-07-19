@@ -51,6 +51,15 @@
         toggle.focus();
       }
     });
+
+    // Klick ausserhalb des Dropdowns schliesst es
+    document.addEventListener("click", function (e) {
+      if (!overlay.classList.contains("open")) return;
+      if (overlay.contains(e.target) || toggle.contains(e.target)) return;
+      overlay.classList.remove("open");
+      document.body.classList.remove("menu-open");
+      toggle.setAttribute("aria-expanded", "false");
+    });
   }
 
   /* ---------------------------------------------------------------

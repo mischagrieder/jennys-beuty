@@ -302,32 +302,52 @@ summary:focus-visible {
 
 /* Mobile-Overlay */
 
+/* Menü als kompakte Dropdown-Liste oben rechts (statt Vollbild) */
 .menu-overlay {
   position: fixed;
-  inset: 0;
-  z-index: 90;
+  top: calc(var(--nav-h) - 0.35rem);
+  right: var(--space-gutter);
+  z-index: 95;
+  width: min(280px, calc(100vw - 2 * var(--space-gutter)));
   background: var(--col-void);
-  display: flex;
-  align-items: center;
-  padding-inline: var(--space-gutter);
+  border: 1px solid var(--col-border);
+  border-radius: 14px;
+  box-shadow: 0 20px 44px rgba(0, 0, 0, 0.18);
+  padding: 0.5rem;
   opacity: 0;
   visibility: hidden;
-  transition: opacity 0.4s ease, visibility 0.4s ease;
+  transform: translateY(-8px);
+  transform-origin: top right;
+  transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease;
 }
-.menu-overlay.open { opacity: 1; visibility: visible; }
+.menu-overlay.open { opacity: 1; visibility: visible; transform: translateY(0); }
 .menu-overlay ul { list-style: none; margin: 0; padding: 0; }
-.menu-overlay li + li { margin-top: 1rem; }
+.menu-overlay li + li { margin-top: 0.1rem; }
 .menu-overlay a {
+  display: block;
   font-family: var(--font-body);
-  font-weight: 300;
-  font-size: var(--fs-39);
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--col-ivory);
+  font-weight: 600;
+  font-size: var(--fs-base);
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--col-ink);
+  padding: 0.7rem 0.9rem;
+  border-radius: 9px;
 }
-.menu-overlay a[aria-current="page"] { color: var(--col-gold); }
-
-body.menu-open { overflow: hidden; }
+.menu-overlay a:hover { background: var(--col-surface); }
+.menu-overlay a[aria-current="page"] { color: var(--col-gold-deep); }
+/* Termin-Button im Dropdown */
+.menu-overlay .menu-cta {
+  display: block;
+  text-align: center;
+  text-transform: uppercase;
+  border-radius: 999px;
+  color: #fff;
+  background: var(--col-gold-deep);
+  margin: 0.5rem 0.35rem 0.35rem;
+  padding: 0.7rem 1rem;
+}
+.menu-overlay .menu-cta:hover { background: #7f434e; }
 body.menu-open .nav__toggle span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
 body.menu-open .nav__toggle span:nth-child(2) { opacity: 0; }
 body.menu-open .nav__toggle span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
