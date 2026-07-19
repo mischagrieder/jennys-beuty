@@ -241,7 +241,7 @@
 
       var name = form.querySelector("#f-name").value.trim();
       var phone = form.querySelector("#f-phone").value.trim();
-      var service = form.querySelector("#f-service").value;
+      var email = form.querySelector("#f-email").value.trim();
       var msg = form.querySelector("#f-msg").value.trim();
       var status = form.querySelector(".form-status");
 
@@ -252,13 +252,13 @@
 
       var body =
         "Guten Tag\n\n" + msg + "\n\n" +
-        "Gewünschte Leistung: " + (service || "–") + "\n" +
         "Name: " + name + "\n" +
-        (phone ? "Telefon: " + phone + "\n" : "");
+        (phone ? "Telefon: " + phone + "\n" : "") +
+        (email ? "E-Mail: " + email + "\n" : "");
 
       var mailto =
         "mailto:jennys_beauty@hotmail.ch" +
-        "?subject=" + encodeURIComponent("Terminanfrage – " + name) +
+        "?subject=" + encodeURIComponent("Anfrage – " + name) +
         "&body=" + encodeURIComponent(body);
 
       window.location.href = mailto;
