@@ -490,4 +490,35 @@
   document.querySelectorAll("[data-year]").forEach(function (el) {
     el.textContent = new Date().getFullYear();
   });
+
+  /* ---------------------------------------------------------------
+     Datenschutz-Hinweis (kein Tracking – reiner Transparenz-Hinweis)
+     Diese Website setzt keine Werbe-/Tracking-Cookies. Der Banner
+     informiert nur über externe Dienste (Schriften, Karte, Bilder)
+     und merkt sich das Wegklicken in localStorage – kein Cookie.
+     --------------------------------------------------------------- */
+  (function initCookieNote() {
+    var KEY = "jb-datenschutz-hinweis";
+    try { if (localStorage.getItem(KEY) === "ok") return; } catch (e) {}
+
+    var note = document.createElement("div");
+    note.className = "cookie-note";
+    note.setAttribute("role", "region");
+    note.setAttribute("aria-label", "Datenschutz-Hinweis");
+    note.innerHTML =
+      '<p class="cookie-note__text">Diese Website verwendet <strong>keine Tracking-Cookies</strong>. ' +
+      'Für Schriften, Karte und Bilder werden externe Dienste geladen, die Ihre IP-Adresse erhalten. ' +
+      'Mehr dazu in der <a href="/datenschutz/">Datenschutzerklärung</a>.</p>' +
+      '<button type="button" class="btn cookie-note__ok">Verstanden</button>';
+
+    document.body.appendChild(note);
+    requestAnimationFrame(function () { note.classList.add("is-visible"); });
+
+    note.querySelector(".cookie-note__ok").addEventListener("click", function () {
+      try { localStorage.setItem(KEY, "ok"); } catch (e) {}
+      note.classList.remove("is-visible");
+      note.addEventListener("transitionend", function () { note.remove(); }, { once: true });
+      setTimeout(function () { if (note.parentNode) note.remove(); }, 600);
+    });
+  })();
 })();

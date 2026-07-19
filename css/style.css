@@ -2332,3 +2332,48 @@ main > aside[id] { scroll-margin-top: 5.5rem; }
   .value:hover { transform: translateY(-4px); }
   .review-card:hover { transform: translateY(-4px); }
 }
+
+/* --------------------------------------------------------------------------
+   Datenschutz-Hinweis (Cookie-Banner light) – unten eingeblendet
+   -------------------------------------------------------------------------- */
+.cookie-note {
+  position: fixed;
+  left: 50%;
+  bottom: clamp(0.75rem, 2vw, 1.5rem);
+  transform: translate(-50%, 140%);
+  width: min(680px, calc(100% - 1.5rem));
+  display: flex;
+  align-items: center;
+  gap: clamp(0.9rem, 2vw, 1.5rem);
+  padding: clamp(0.9rem, 2vw, 1.15rem) clamp(1rem, 2.5vw, 1.6rem);
+  background: #fff;
+  color: var(--col-ink);
+  border: 1px solid rgba(150, 79, 92, 0.22);
+  border-radius: 16px;
+  box-shadow: 0 18px 48px rgba(58, 58, 58, 0.22);
+  opacity: 0;
+  z-index: 200;
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.4s ease;
+}
+.cookie-note.is-visible { transform: translate(-50%, 0); opacity: 1; }
+.cookie-note__text {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.55;
+}
+.cookie-note__text a { color: var(--col-gold-deep); text-decoration: underline; }
+.cookie-note__ok {
+  flex: none;
+  padding: 0.6rem 1.35rem;
+  font-size: 0.9rem;
+  white-space: nowrap;
+}
+@media (max-width: 560px) {
+  .cookie-note {
+    flex-direction: column;
+    align-items: stretch;
+    text-align: left;
+    gap: 0.8rem;
+  }
+  .cookie-note__ok { align-self: flex-end; }
+}
