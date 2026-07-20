@@ -24,7 +24,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Pinyon+Script&family=Sora:wght@400;500;600;700;800&family=Poppins:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/css/style.css?v=42">
+  <link rel="stylesheet" href="/css/style.css?v=43">
 
   <script type="application/ld+json">
   {
@@ -519,103 +519,85 @@
         </div>
         <p class="lead lead--center reveal">Wir als Team freuen uns, euch im Salon zu begrüssen.</p>
 
-        <!-- Team als blätterbare Zeitung (klicken / wischen) -->
-        <div class="paper reveal" data-paper>
-          <div class="paper__viewport">
-            <div class="paper__track">
+        <!-- Team als Karten-Raster -->
+        <div class="team-grid">
 
-              <!-- PLATZHALTER-FOTOS: echte Teamfotos (s/w) einsetzen -->
-              <article class="paper-page">
-                <div class="paper-page__body">
-                  <figure class="paper-page__photo">
-                    <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=800&auto=format&fit=crop" alt="Jenny" loading="lazy" draggable="false">
-                  </figure>
-                  <div class="paper-page__col">
-                    <span class="paper-page__role">Inhaberin · Coiffeuse</span>
-                    <h3 class="paper-page__name">Jenny</h3>
-                    <p class="paper-page__leadtext">Führt den Salon mit Herzblut und einem Auge fürs Detail.</p>
-                    <ul class="paper-page__skills">
-                      <li>Nageldesignerin</li>
-                      <li>Farbexpertin</li>
-                      <li>Meches / Balayage</li>
-                      <li>Extension</li>
-                      <li>Schnitt &amp; Styling</li>
-                      <li>Herrenhaarschnitt</li>
-                      <li>Augenbrauen zupfen mit Faden</li>
-                    </ul>
-                  </div>
-                </div>
-              </article>
-
-              <article class="paper-page">
-                <div class="paper-page__body">
-                  <figure class="paper-page__photo">
-                    <img src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?q=80&w=800&auto=format&fit=crop" alt="Renata" loading="lazy" draggable="false">
-                  </figure>
-                  <div class="paper-page__col">
-                    <span class="paper-page__role">Coiffeuse &amp; Stylistin</span>
-                    <h3 class="paper-page__name">Renata</h3>
-                    <p class="paper-page__leadtext">Farbe, Schnitt und Styling mit einem sicheren Gespür für Ihren Look.</p>
-                    <ul class="paper-page__skills">
-                      <li>Farbexpertin</li>
-                      <li>Meches / Balayage</li>
-                      <li>Extension</li>
-                      <li>Schnitt &amp; Styling</li>
-                      <li>Herrenhaarschnitt</li>
-                    </ul>
-                  </div>
-                </div>
-              </article>
-
-              <article class="paper-page">
-                <div class="paper-page__body">
-                  <figure class="paper-page__photo">
-                    <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=800&auto=format&fit=crop" alt="Svjetlana" loading="lazy" draggable="false">
-                  </figure>
-                  <div class="paper-page__col">
-                    <span class="paper-page__role">Coiffeuse &amp; Stylistin</span>
-                    <h3 class="paper-page__name">Svjetlana</h3>
-                    <p class="paper-page__leadtext">Von Balayage bis Brauen – Handwerk mit Liebe zum Detail.</p>
-                    <ul class="paper-page__skills">
-                      <li>Farbexpertin</li>
-                      <li>Meches / Balayage</li>
-                      <li>Extension</li>
-                      <li>Schnitt &amp; Styling</li>
-                      <li>Herrenhaarschnitt</li>
-                      <li>Augenbrauen zupfen mit Faden</li>
-                    </ul>
-                  </div>
-                </div>
-              </article>
-
-              <article class="paper-page">
-                <div class="paper-page__body">
-                  <figure class="paper-page__photo">
-                    <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=800&auto=format&fit=crop" alt="Karina" loading="lazy" draggable="false">
-                  </figure>
-                  <div class="paper-page__col">
-                    <span class="paper-page__role">Coiffeuse &amp; Stylistin</span>
-                    <h3 class="paper-page__name">Karina</h3>
-                    <p class="paper-page__leadtext">Farbe und Schnitt mit Persönlichkeit – für einen Look, der zu Ihnen passt.</p>
-                    <ul class="paper-page__skills">
-                      <li>Farbexpertin</li>
-                      <li>Meches / Balayage</li>
-                      <li>Schnitt &amp; Styling</li>
-                      <li>Herrenhaarschnitt</li>
-                      <li>Augenbrauen zupfen mit Faden</li>
-                    </ul>
-                  </div>
-                </div>
-              </article>
-
+          <!-- PLATZHALTER-FOTOS: echte Teamfotos einsetzen -->
+          <article class="team-card reveal">
+            <figure class="team-card__photo">
+              <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=800&auto=format&fit=crop" alt="Jenny" loading="lazy">
+            </figure>
+            <div class="team-card__body">
+              <span class="team-card__role">Inhaberin · Coiffeuse</span>
+              <h3 class="team-card__name">Jenny</h3>
+              <p class="team-card__text">Führt den Salon mit Herzblut und einem Auge fürs Detail.</p>
+              <ul class="team-card__skills">
+                <li>Nageldesign</li>
+                <li>Farbe</li>
+                <li>Mèches / Balayage</li>
+                <li>Extensions</li>
+                <li>Schnitt &amp; Styling</li>
+                <li>Herrenschnitt</li>
+                <li>Augenbrauen (Faden)</li>
+              </ul>
             </div>
-          </div>
+          </article>
 
-          <button class="paper__nav paper__nav--prev" type="button" aria-label="Vorherige Seite">‹</button>
-          <button class="paper__nav paper__nav--next" type="button" aria-label="Nächste Seite">›</button>
-          <div class="paper__foot">
-            <div class="paper__dots" role="tablist" aria-label="Team-Seiten"></div>
-          </div>
+          <article class="team-card reveal">
+            <figure class="team-card__photo">
+              <img src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?q=80&w=800&auto=format&fit=crop" alt="Renata" loading="lazy">
+            </figure>
+            <div class="team-card__body">
+              <span class="team-card__role">Coiffeuse &amp; Stylistin</span>
+              <h3 class="team-card__name">Renata</h3>
+              <p class="team-card__text">Farbe, Schnitt und Styling mit einem sicheren Gespür für Ihren Look.</p>
+              <ul class="team-card__skills">
+                <li>Farbe</li>
+                <li>Mèches / Balayage</li>
+                <li>Extensions</li>
+                <li>Schnitt &amp; Styling</li>
+                <li>Herrenschnitt</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="team-card reveal">
+            <figure class="team-card__photo">
+              <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=800&auto=format&fit=crop" alt="Svjetlana" loading="lazy">
+            </figure>
+            <div class="team-card__body">
+              <span class="team-card__role">Coiffeuse &amp; Stylistin</span>
+              <h3 class="team-card__name">Svjetlana</h3>
+              <p class="team-card__text">Von Balayage bis Brauen – Handwerk mit Liebe zum Detail.</p>
+              <ul class="team-card__skills">
+                <li>Farbe</li>
+                <li>Mèches / Balayage</li>
+                <li>Extensions</li>
+                <li>Schnitt &amp; Styling</li>
+                <li>Herrenschnitt</li>
+                <li>Augenbrauen (Faden)</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="team-card reveal">
+            <figure class="team-card__photo">
+              <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=800&auto=format&fit=crop" alt="Karina" loading="lazy">
+            </figure>
+            <div class="team-card__body">
+              <span class="team-card__role">Coiffeuse &amp; Stylistin</span>
+              <h3 class="team-card__name">Karina</h3>
+              <p class="team-card__text">Farbe und Schnitt mit Persönlichkeit – für einen Look, der zu Ihnen passt.</p>
+              <ul class="team-card__skills">
+                <li>Farbe</li>
+                <li>Mèches / Balayage</li>
+                <li>Schnitt &amp; Styling</li>
+                <li>Herrenschnitt</li>
+                <li>Augenbrauen (Faden)</li>
+              </ul>
+            </div>
+          </article>
+
         </div>
       </div>
     </section>
@@ -750,6 +732,6 @@
     </div>
   </footer>
 
-  <script src="/js/main.js?v=42" defer></script>
+  <script src="/js/main.js?v=43" defer></script>
 </body>
 </html>

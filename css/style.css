@@ -1853,155 +1853,79 @@ main > aside[id] { scroll-margin-top: 5.5rem; }
 .menu-cta:hover { background: #7f434e; }
 
 /* --------------------------------------------------------------------------
-   Team als blätterbare "Zeitung"
+   Team als Karten-Raster
    -------------------------------------------------------------------------- */
-.paper {
-  position: relative;
-  max-width: 60rem;
-  margin: 0 auto;
-  touch-action: pan-y;
-}
-.paper__viewport {
-  overflow: hidden;
-  border-radius: 4px;
-  box-shadow: 0 18px 40px rgba(58, 58, 58, 0.16);
-}
-.paper__track {
-  display: flex;
-  transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
-  will-change: transform;
-}
-.paper-page {
-  flex: 0 0 100%;
-  box-sizing: border-box;
-  background-color: #f5f0e6;                 /* Zeitungspapier */
-  background-image: radial-gradient(rgba(0, 0, 0, 0.035) 1px, transparent 1px);
-  background-size: 4px 4px;
-  padding: clamp(1.25rem, 3vw, 2.4rem);
-  color: #23201d;
-}
-.paper-page__masthead {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  gap: 1rem;
-  border-top: 3px double #23201d;
-  border-bottom: 1px solid #23201d;
-  padding: 0.5rem 0;
-  margin-bottom: 1.5rem;
-}
-.paper-page__brand {
-  font-family: var(--font-body);
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  font-size: var(--fs-base);
-}
-.paper-page__edition {
-  font-family: var(--font-body);
-  font-style: italic;
-  font-size: var(--fs-base);
-  opacity: 0.7;
-}
-.paper-page__body {
+.team-grid {
   display: grid;
-  grid-template-columns: 0.85fr 1.15fr;
-  gap: clamp(1.25rem, 3vw, 2.5rem);
-  align-items: start;
+  grid-template-columns: repeat(4, 1fr);
+  gap: clamp(1.1rem, 2.5vw, 1.75rem);
+  margin-top: clamp(1.75rem, 4vw, 2.75rem);
 }
-.paper-page__photo { margin: 0; }
-.paper-page__photo img {
-  width: 100%;
-  aspect-ratio: 4 / 5;
-  object-fit: cover;
-  filter: grayscale(1) contrast(1.05);       /* Zeitungs-Look (s/w) */
-  border: 1px solid #c9bda8;
-  -webkit-user-drag: none;
-}
-.paper-page__role {
-  display: block;
-  font-family: var(--font-body);
-  text-transform: uppercase;
-  letter-spacing: 0.14em;
-  font-size: var(--fs-base);
-  color: var(--col-ink);
-  margin-bottom: 0.2rem;
-}
-.paper-page__name.paper-page__name {          /* höhere Spezifität → kein Farbverlauf */
-  font-family: var(--font-body);
-  font-size: var(--fs-lg);
-  margin: 0 0 0.6rem;
-  padding-bottom: 0.4rem;
-  color: #23201d;
-  background: none;
-  -webkit-text-fill-color: currentColor;
-  border-bottom: 2px solid #23201d;
-}
-.paper-page__leadtext { font-style: italic; margin-bottom: 0.9rem; }
-.paper-page__skills {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  columns: 2;                                 /* Zeitungsspalten */
-  column-gap: 1.6rem;
-}
-.paper-page__skills li {
-  break-inside: avoid;
-  position: relative;
-  padding: 0.22rem 0 0.22rem 1.1rem;
-  line-height: 1.4;
-}
-.paper-page__skills li::before {
-  content: "✚";
-  position: absolute;
-  left: 0;
-  color: var(--col-gold);
-  font-size: 0.8em;
-  top: 0.35rem;
-}
-/* Blätter-Navigation */
-.paper__nav {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 46px;
-  height: 46px;
-  border-radius: 50%;
-  border: 1px solid #d8cdba;
+.team-card {
+  display: flex;
+  flex-direction: column;
   background: #fff;
-  color: #23201d;
-  font-size: 1.5rem;
-  line-height: 1;
-  cursor: pointer;
-  display: grid;
-  place-items: center;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.14);
-  z-index: 2;
-  transition: background 0.2s ease, color 0.2s ease;
+  border: 1px solid rgba(150, 79, 92, 0.16);
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 14px 34px rgba(58, 58, 58, 0.12);
 }
-.paper__nav--prev { left: -12px; }
-.paper__nav--next { right: -12px; }
-.paper__nav:hover { background: var(--col-gold); color: #fff; }
-.paper__foot { display: flex; justify-content: center; margin-top: 1.1rem; }
-.paper__dots { display: flex; gap: 0.5rem; }
-.paper__dot {
-  width: 9px;
-  height: 9px;
-  border-radius: 50%;
-  border: none;
+.team-card__photo { margin: 0; overflow: hidden; }
+.team-card__photo img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+}
+.team-card__body {
+  display: flex;
+  flex-direction: column;
+  padding: clamp(1rem, 2vw, 1.4rem);
+}
+.team-card__role {
+  display: block;
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--col-gold-deep);
+  margin-bottom: 0.25rem;
+}
+.team-card__name.team-card__name {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  margin: 0 0 0.5rem;
+  color: var(--col-ink);
+}
+.team-card__text {
+  font-size: 0.92rem;
+  line-height: 1.55;
+  margin: 0 0 0.9rem;
+}
+.team-card__skills {
+  list-style: none;
+  margin: auto 0 0;
   padding: 0;
-  cursor: pointer;
-  background: #cfc3b0;
-  transition: background 0.2s ease, transform 0.2s ease;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
 }
-.paper__dot[aria-selected="true"] { background: var(--col-gold); transform: scale(1.25); }
+.team-card__skills li {
+  font-size: 0.74rem;
+  font-weight: 500;
+  line-height: 1;
+  padding: 0.4em 0.7em;
+  border-radius: 999px;
+  background: var(--col-surface);
+  color: var(--col-ink);
+}
 
-@media (max-width: 640px) {
-  .paper-page__body { grid-template-columns: 1fr; }
-  .paper-page__photo img { aspect-ratio: 3 / 2; }
-  .paper-page__skills { columns: 1; }
-  .paper__nav--prev { left: 4px; }
-  .paper__nav--next { right: 4px; }
+@media (max-width: 980px) {
+  .team-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 560px) {
+  .team-grid { grid-template-columns: 1fr; max-width: 22rem; margin-inline: auto; }
+  .team-card__photo img { aspect-ratio: 4 / 3; }
 }
 
 /* --------------------------------------------------------------------------
@@ -2312,24 +2236,26 @@ main > aside[id] { scroll-margin-top: 5.5rem; }
 @media (hover: hover) and (pointer: fine) {
   .about-hero__img,
   .wellbeing__img,
-  .paper-page__photo,
+  .team-card__photo,
   .duo { overflow: hidden; }
   .about-hero__img img,
   .wellbeing__img img,
-  .paper-page__photo img,
+  .team-card__photo img,
   .duo img {
     transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
     will-change: transform;
   }
   .about-hero__img:hover img,
   .wellbeing__img:hover img,
-  .paper-page__photo:hover img,
+  .team-card__photo:hover img,
   .duo img:hover { transform: scale(1.05); }
   /* Karten & Buttons: dezentes Anheben */
   .value,
+  .team-card,
   .review-card,
-  .price-acc summary { transition: transform 0.25s ease; }
+  .price-acc summary { transition: transform 0.25s ease, box-shadow 0.25s ease; }
   .value:hover { transform: translateY(-4px); }
+  .team-card:hover { transform: translateY(-4px); box-shadow: 0 20px 44px rgba(58, 58, 58, 0.18); }
   .review-card:hover { transform: translateY(-4px); }
 }
 
