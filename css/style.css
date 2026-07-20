@@ -1754,13 +1754,13 @@ main > aside[id] { scroll-margin-top: 5.5rem; }
   width: max-content;
   gap: 1.4rem;
   padding-inline: 0.7rem;
-  /* -50% -> 0: Karten wandern nach rechts und tauchen links wieder auf */
+  /* 0 -> -50%: Karten wandern nach links und tauchen rechts wieder auf */
   animation: reviews-scroll 46s linear infinite;
   will-change: transform;
 }
 @keyframes reviews-scroll {
-  from { transform: translateX(-50%); }
-  to   { transform: translateX(0); }
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
 }
 .reviews-marquee:hover .reviews-track,
 .reviews-marquee:focus-within .reviews-track { animation-play-state: paused; }
