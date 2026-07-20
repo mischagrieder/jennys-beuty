@@ -157,7 +157,7 @@ summary:focus-visible {
    -------------------------------------------------------------------------- */
 
 .wrap {
-  width: min(100% - 2 * var(--space-gutter), 78rem);
+  width: min(100% - 2 * var(--space-gutter), 70rem);
   margin-inline: auto;
 }
 
