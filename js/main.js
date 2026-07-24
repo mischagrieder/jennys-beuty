@@ -521,4 +521,68 @@
       setTimeout(function () { if (note.parentNode) note.remove(); }, 600);
     });
   })();
+
+  /* ---------------------------------------------------------------
+     Sanftes Momentum-Scrolling (Maus/Desktop)
+     Beim Loslassen gleitet die Seite weich aus, statt abrupt zu stoppen.
+     Nur für feine Zeiger (Maus). Touch & Touchpad haben natives Momentum,
+     "prefers-reduced-motion" wird respektiert. Scrollbare Bereiche
+     (z. B. Chat) werden nicht beeinflusst.
+     --------------------------------------------------------------- */
+  (function smoothMomentumScroll() {
+    var fine = window.matchMedia("(hover: hover) and (pointer: fine)");
+    var reduce = window.matchMedia("(prefers-reduced-motion: reduce)");
+    if (!fine.matches || reduce.matches) return;
+
+    var target = window.scrollY;
+    var current = window.scrollY;
+    var running = false;
+    var EASE = 0.12;
+
+    function maxScroll() {
+      return Math.max(0, document.documentElement.scrollHeight - window.innerHeight);
+    }
+
+    function frame() {
+      current += (target - current) * EASE;
+      if (Math.abs(target - current) < 0.5) {
+        current = target;
+        running = false;
+      }
+      window.scrollTo({ top: Math.round(current), behavior: "instant" });
+      if (running) requestAnimationFrame(frame);
+    }
+
+    window.addEventListener(
+      "wheel",
+      function (e) {
+        // Zoom (Strg+Rad) und scrollbare Elemente (Chat) in Ruhe lassen
+        if (e.ctrlKey) return;
+        if (e.target.closest && e.target.closest(".chat-panel")) return;
+
+        var delta = e.deltaY * (e.deltaMode === 1 ? 16 : e.deltaMode === 2 ? window.innerHeight : 1);
+        if (!running) target = window.scrollY;
+        target = Math.max(0, Math.min(maxScroll(), target + delta));
+        e.preventDefault();
+        if (!running) {
+          running = true;
+          current = window.scrollY;
+          requestAnimationFrame(frame);
+        }
+      },
+      { passive: false }
+    );
+
+    // Bei anderem Scrollen (Anker-Links, Tastatur, Scrollbalken) synchron halten
+    window.addEventListener(
+      "scroll",
+      function () {
+        if (!running) {
+          target = window.scrollY;
+          current = window.scrollY;
+        }
+      },
+      { passive: true }
+    );
+  })();
 })();
