@@ -318,13 +318,13 @@
       oeffnung:
         "Unsere Öffnungszeiten:<br>Mo, Do, Fr: 10:00 – 19:00<br>Di: 10:00 – 14:00<br>Sa: 08:30 – 16:00<br>Mi & So geschlossen · nur nach Voranmeldung.",
       preise:
-        "Ein kleiner Auszug (CHF):<br>Damen Waschen/Schneiden/Styling ab 80.–<br>Herren ab 30.–<br>Kinder ab 20.–<br>Ganze Preisliste: <a href=\"/damen/\">Damen</a> · <a href=\"/herren/\">Herren</a>.",
+        "Ein kleiner Auszug (CHF):<br>Damen Waschen/Schneiden/Styling ab 80.–<br>Herren ab 30.–<br>Kinder ab 20.–<br>Zur ganzen <a href=\"/#preise\">Preisliste</a>.",
       termin:
         "Buchen Sie bequem online: <a href=\"https://jennys-beauty.hairlist.ch/termin\" target=\"_blank\" rel=\"noopener\">Termin online buchen</a>.<br>Oder telefonisch: <a href=\"tel:+41763450011\">076 345 00 11</a> – wir arbeiten nur nach Voranmeldung.",
       anfahrt:
         "Sie finden uns an der Neue Aarburgerstrasse 22, 4852 Rothrist – im Breitenpark, Parkplätze sind vorhanden.",
       leistungen:
-        "Wir bieten: Coiffeur für Damen, Herren & Kinder, Farbe & Mèches, Nägel, Kosmetik, Augenbrauen, Braut & Make-up sowie Extensions.<br>Mehr: <a href=\"/damen/\">Damen</a> · <a href=\"/herren/\">Herren</a> · <a href=\"/galerie/\">Galerie</a>."
+        "Wir bieten: Coiffeur für Damen, Herren & Kinder, Farbe & Mèches, Nägel, Kosmetik, Augenbrauen, Braut & Make-up sowie Extensions.<br>Alle Details &amp; Preise in der <a href=\"/#preise\">Preisliste</a>."
     };
     var quick = [
       ["oeffnung", "Öffnungszeiten"],
