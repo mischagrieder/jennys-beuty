@@ -2048,6 +2048,20 @@ main > aside[id] { scroll-margin-top: 5.5rem; }
 }
 .pl-book:hover { background: var(--col-gold-deep); color: #fff; }
 .priceplan-cta { text-align: center; margin-top: 1.8rem; }
+.price-notes {
+  max-width: 52rem;
+  margin: 1.6rem auto 0;
+  padding-top: 1.1rem;
+  border-top: 1px solid var(--col-border);
+}
+.price-notes p {
+  margin: 0 0 0.5rem;
+  font-size: 0.78rem;
+  line-height: 1.5;
+  color: var(--col-ink);
+  opacity: 0.7;
+}
+.price-notes p:last-child { margin-bottom: 0; }
 
 /* --------------------------------------------------------------------------
    MOBILE: kompakter & übersichtlicher
