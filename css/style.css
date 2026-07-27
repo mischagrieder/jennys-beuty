@@ -1073,6 +1073,35 @@ body.menu-open .nav__toggle span:nth-child(3) { transform: translateY(-8px) rota
   filter: grayscale(100%) invert(90%) hue-rotate(180deg) brightness(0.9);
 }
 
+/* Anfahrt: Infos links, Bild rechts */
+.findus {
+  display: grid;
+  grid-template-columns: 1fr 1.15fr;
+  gap: clamp(1.75rem, 5vw, 4rem);
+  align-items: center;
+  margin-top: clamp(1.5rem, 3vw, 2.5rem);
+}
+.findus__info { display: flex; flex-direction: column; gap: 1.75rem; }
+.findus__block .label { display: block; margin-bottom: 0.5rem; }
+.findus__block p { margin: 0 0 0.35rem; }
+.findus__block p:last-child { margin-bottom: 0; }
+.findus__img {
+  margin: 0;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 22px 50px rgba(58, 58, 58, 0.18);
+}
+.findus__img img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+@media (max-width: 760px) {
+  .findus { grid-template-columns: 1fr; }
+  .findus__img { order: -1; }
+}
+
 /* --------------------------------------------------------------------------
    Footer
    -------------------------------------------------------------------------- */
@@ -2282,10 +2311,12 @@ main > aside[id] { scroll-margin-top: 5.5rem; }
 @media (hover: hover) and (pointer: fine) {
   .about-hero__img,
   .wellbeing__img,
+  .findus__img,
   .team-card__photo,
   .duo { overflow: hidden; }
   .about-hero__img img,
   .wellbeing__img img,
+  .findus__img img,
   .team-card__photo img,
   .duo img {
     transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
@@ -2293,6 +2324,7 @@ main > aside[id] { scroll-margin-top: 5.5rem; }
   }
   .about-hero__img:hover img,
   .wellbeing__img:hover img,
+  .findus__img:hover img,
   .team-card__photo:hover img,
   .duo img:hover { transform: scale(1.05); }
   /* Karten & Buttons: dezentes Anheben */
