@@ -1133,9 +1133,6 @@ body.menu-open .nav__toggle span:nth-child(3) { transform: translateY(-8px) rota
 }
 .footer__brand .sig { font-style: italic; color: var(--col-whisper); max-width: 30ch; }
 .footer__meta {
-  margin-top: clamp(2.5rem, 5vw, 4rem);
-  padding-top: 1.5rem;
-  border-top: 1px solid var(--col-border);
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
