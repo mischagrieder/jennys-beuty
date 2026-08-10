@@ -2544,8 +2544,12 @@ main > aside[id] { scroll-margin-top: 5.5rem; }
     grid-template-columns: 1fr;
     gap: 1.5rem;
   }
-  .services-scroll__text { min-height: 0; }
-  .services-scroll__panels { height: auto; }
+  .services-scroll__text { min-height: 0; align-self: auto; }
+  .services-scroll__panels {
+    position: static;
+    inset: auto;
+    height: auto;
+  }
   .services-panel {
     position: relative;
     inset: auto;
