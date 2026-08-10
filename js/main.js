@@ -585,4 +585,63 @@
       { passive: true }
     );
   })();
+
+  /* ---------------------------------------------------------------
+     Dienstleistungen: Sticky-Scrollytelling
+     Text + Bild wechseln synchron zur Scrollposition, mit sanftem Übergang.
+     --------------------------------------------------------------- */
+  (function () {
+    var stage = document.querySelector("[data-services-stage]");
+    if (!stage) return;
+
+    var panels = stage.querySelectorAll(".services-panel");
+    var medias = stage.querySelectorAll(".services-media");
+    var dots = stage.querySelectorAll(".services-scroll__progress li");
+    if (!panels.length) return;
+
+    var mqDesktop = window.matchMedia("(min-width: 861px)");
+    var current = 0;
+    var ticking = false;
+
+    function setActive(index) {
+      if (index === current) return;
+      current = index;
+      for (var i = 0; i < panels.length; i++) {
+        panels[i].classList.toggle("is-active", i === index);
+      }
+      for (var j = 0; j < medias.length; j++) {
+        medias[j].classList.toggle("is-active", j === index);
+      }
+      for (var k = 0; k < dots.length; k++) {
+        dots[k].classList.toggle("is-active", k === index);
+      }
+    }
+
+    function update() {
+      ticking = false;
+      if (!mqDesktop.matches) return;
+      var rect = stage.getBoundingClientRect();
+      var vh = window.innerHeight;
+      var scrollable = rect.height - vh;
+      if (scrollable <= 0) return;
+      var scrolled = Math.min(Math.max(-rect.top, 0), scrollable);
+      var progress = scrolled / scrollable;
+      var step = Math.min(panels.length - 1, Math.floor(progress * panels.length));
+      if (step < 0) step = 0;
+      setActive(step);
+    }
+
+    function onScroll() {
+      if (ticking) return;
+      ticking = true;
+      window.requestAnimationFrame(update);
+    }
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
+    mqDesktop.addEventListener
+      ? mqDesktop.addEventListener("change", onScroll)
+      : mqDesktop.addListener(onScroll);
+    update();
+  })();
 })();
