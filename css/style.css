@@ -2382,3 +2382,192 @@ main > aside[id] { scroll-margin-top: 5.5rem; }
   }
   .cookie-note__ok { align-self: flex-end; }
 }
+
+/* --------------------------------------------------------------------------
+   Dienstleistungen – Sticky-Scrollytelling
+   Text links, Bild rechts. Beim Scrollen wechseln Text und Bild sanft,
+   während der Bereich am Platz gepinnt bleibt.
+   -------------------------------------------------------------------------- */
+.services-scroll { padding-bottom: 0; }
+.services-scroll .sec-head { margin-bottom: clamp(1.5rem, 3vw, 2.5rem); }
+
+.services-scroll__stage {
+  position: relative;
+  /* 4 Steps – erster sofort sichtbar, dann 3 Übergänge je ca. 90vh */
+  height: calc(100vh + 3 * 90vh);
+}
+.services-scroll__sticky {
+  position: sticky;
+  top: var(--nav-h, 0px);
+  height: calc(100vh - var(--nav-h, 0px));
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.services-scroll__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(1.75rem, 5vw, 4.5rem);
+  align-items: center;
+  width: min(100% - 2 * var(--space-gutter), 78rem);
+  margin-inline: auto;
+}
+
+/* Textspalte: alle Panels übereinander, aktives eingeblendet */
+.services-scroll__text {
+  position: relative;
+  min-height: clamp(18rem, 42vh, 26rem);
+}
+.services-scroll__panels {
+  position: relative;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  height: 100%;
+}
+.services-panel {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.55s ease, transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+  pointer-events: none;
+}
+.services-panel.is-active {
+  opacity: 1;
+  transform: none;
+  pointer-events: auto;
+}
+.services-panel__eyebrow {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--col-gold-deep);
+  margin-bottom: 0.9rem;
+}
+.services-panel__title {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(2rem, 1.4rem + 2.4vw, 3.25rem);
+  line-height: 1.05;
+  margin: 0 0 1rem;
+}
+.services-panel__desc {
+  font-size: clamp(1rem, 0.95rem + 0.2vw, 1.125rem);
+  line-height: 1.65;
+  margin: 0;
+  max-width: 36ch;
+}
+
+/* Bildspalte */
+.services-scroll__media {
+  position: relative;
+  aspect-ratio: 3 / 4;
+  max-height: min(72vh, 620px);
+  border-radius: 22px;
+  overflow: hidden;
+  box-shadow: 0 26px 60px rgba(58, 58, 58, 0.22);
+  background: var(--col-surface);
+  justify-self: center;
+  width: 100%;
+}
+.services-media {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transform: scale(1.06);
+  transition: opacity 0.7s ease, transform 1.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.services-media.is-active {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Fortschrittsanzeige */
+.services-scroll__progress {
+  list-style: none;
+  padding: 0;
+  margin: clamp(1rem, 2.5vw, 2rem) auto 0;
+  display: flex;
+  gap: 0.9rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.services-scroll__progress li {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.78rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(58, 58, 58, 0.5);
+  transition: color 0.4s ease;
+}
+.services-scroll__progress li::before {
+  content: "";
+  width: 28px;
+  height: 2px;
+  background: rgba(58, 58, 58, 0.22);
+  border-radius: 2px;
+  transition: background 0.4s ease, width 0.4s ease;
+}
+.services-scroll__progress li.is-active { color: var(--col-gold-deep); }
+.services-scroll__progress li.is-active::before {
+  background: var(--col-gold-deep);
+  width: 44px;
+}
+
+/* Mobil-Bild pro Panel: auf Desktop ausgeblendet */
+.services-panel__pic { display: none; }
+
+/* Kleine Screens: kein Sticky-Effekt, alles einfach untereinander */
+@media (max-width: 860px) {
+  .services-scroll__stage { height: auto; }
+  .services-scroll__sticky {
+    position: static;
+    height: auto;
+  }
+  .services-scroll__grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  .services-scroll__text { min-height: 0; }
+  .services-scroll__panels { height: auto; }
+  .services-panel {
+    position: relative;
+    inset: auto;
+    opacity: 1;
+    transform: none;
+    padding: 1.5rem 0 2.25rem;
+    border-bottom: 1px solid rgba(58, 58, 58, 0.12);
+  }
+  .services-panel:last-child { border-bottom: 0; }
+  .services-panel__pic {
+    display: block;
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    background-size: cover;
+    background-position: center;
+    border-radius: 18px;
+    margin-bottom: 1.25rem;
+    box-shadow: 0 18px 40px rgba(58, 58, 58, 0.18);
+  }
+  .services-scroll__media { display: none; }
+  .services-scroll__progress { display: none; }
+}
+
+/* Reduzierte Bewegung */
+@media (prefers-reduced-motion: reduce) {
+  .services-panel,
+  .services-media { transition: opacity 0.2s ease; transform: none !important; }
+}
