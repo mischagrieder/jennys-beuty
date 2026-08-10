@@ -2413,17 +2413,18 @@ main > aside[id] { scroll-margin-top: 5.5rem; }
   margin-inline: auto;
 }
 
-/* Textspalte: alle Panels übereinander, aktives eingeblendet */
+/* Textspalte: auf Bildhöhe gestreckt, Panels übereinander, aktives eingeblendet */
 .services-scroll__text {
   position: relative;
+  align-self: stretch;              /* Spalte übernimmt die Höhe des Bildes */
   min-height: clamp(18rem, 42vh, 26rem);
 }
 .services-scroll__panels {
-  position: relative;
+  position: absolute;
+  inset: 0;                         /* füllt die gestreckte Spalte komplett */
   list-style: none;
   padding: 0;
   margin: 0;
-  height: 100%;
 }
 .services-panel {
   position: absolute;
